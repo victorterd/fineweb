@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 250">
+  <defs>
+    <linearGradient id="fwl" gradientUnits="userSpaceOnUse" x1="8" y1="125" x2="242" y2="125" gradientTransform="rotate(-45 125 125)">
+      <stop offset="0" stop-color="#1D6DF2"/>
+      <stop offset="1" stop-color="#0FF1D4"/>
+    </linearGradient>
+    <linearGradient id="fwr" gradientUnits="userSpaceOnUse" x1="238" y1="125" x2="472" y2="125" gradientTransform="rotate(-45 355 125)">
+      <stop offset="0" stop-color="#0FF1D4"/>
+      <stop offset="1" stop-color="#1D6DF2"/>
+    </linearGradient>
+  </defs>
+  <rect x="42" y="42" width="166" height="166" rx="46" transform="rotate(45 125 125)" fill="url(#fwl)"/>
+  <rect x="272" y="42" width="166" height="166" rx="46" transform="rotate(45 355 125)" fill="url(#fwr)"/>
+  <circle cx="240" cy="125" r="103" fill="#0B4FF0"/>
+</svg>
