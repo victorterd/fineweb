@@ -1,15 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 250">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464 248">
   <defs>
-    <linearGradient id="fwl" gradientUnits="userSpaceOnUse" x1="8" y1="125" x2="242" y2="125" gradientTransform="rotate(-45 125 125)">
-      <stop offset="0" stop-color="#1D6DF2"/>
-      <stop offset="1" stop-color="#0FF1D4"/>
+    <linearGradient id="fwl" gradientUnits="userSpaceOnUse" x1="10" y1="124" x2="314" y2="124">
+      <stop offset="0" stop-color="#1E7CE8"/>
+      <stop offset="1" stop-color="#04F0D2"/>
     </linearGradient>
-    <linearGradient id="fwr" gradientUnits="userSpaceOnUse" x1="238" y1="125" x2="472" y2="125" gradientTransform="rotate(-45 355 125)">
-      <stop offset="0" stop-color="#0FF1D4"/>
-      <stop offset="1" stop-color="#1D6DF2"/>
+    <linearGradient id="fwr" gradientUnits="userSpaceOnUse" x1="150" y1="124" x2="454" y2="124">
+      <stop offset="0" stop-color="#04F0D2"/>
+      <stop offset="1" stop-color="#1E7CE8"/>
     </linearGradient>
   </defs>
-  <rect x="42" y="42" width="166" height="166" rx="46" transform="rotate(45 125 125)" fill="url(#fwl)"/>
-  <rect x="272" y="42" width="166" height="166" rx="46" transform="rotate(45 355 125)" fill="url(#fwr)"/>
-  <circle cx="240" cy="125" r="103" fill="#0B4FF0"/>
+  <path d="M 46.6 151.9 Q 10 124 46.6 96.1 L 125.4 35.9 Q 162 8 198.6 35.9 L 277.4 96.1 Q 314 124 277.4 151.9 L 198.6 212.1 Q 162 240 125.4 212.1 Z" fill="url(#fwl)"/>
+  <path d="M 186.6 151.9 Q 150 124 186.6 96.1 L 265.4 35.9 Q 302 8 338.6 35.9 L 417.4 96.1 Q 454 124 417.4 151.9 L 338.6 212.1 Q 302 240 265.4 212.1 Z" fill="url(#fwr)"/>
+  <circle cx="232" cy="124" r="105" fill="#0B51F5"/>
 </svg>
