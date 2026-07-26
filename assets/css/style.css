@@ -1034,7 +1034,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
   padding-bottom: 48px;
 }
 .footer-brand p{ color: var(--muted); margin-top: 14px; font-size: 0.95rem; }
-.footer-brand .logo-mark{ height: 24px; }
+.footer-brand .logo-mark{ height: 30px; }
 .footer-col{ display: flex; flex-direction: column; gap: 11px; }
 .footer-col h4{
   font-family: var(--font-body);
@@ -1114,6 +1114,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 
 @media (max-width: 520px){
   .nav-cta{ display: none; }
+  .logo-mark{ height: 26px; }
   .section{ padding: 72px 0; }
   .contact-form{ padding: 26px 20px; }
   .compare-col{ padding: 30px 24px; }
