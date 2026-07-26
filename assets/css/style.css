@@ -4,6 +4,7 @@
   src: url('../fonts/BricolageGrotesque-Variable.woff2') format('woff2-variations'),
        url('../fonts/BricolageGrotesque-Variable.woff2') format('woff2');
   font-weight: 200 800;
+  font-stretch: 75% 100%;
   font-style: normal;
   font-display: swap;
 }
@@ -1104,6 +1105,11 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 
 @media (max-width: 760px){
   .hero{ padding-top: 140px; }
+  .hero-title{
+    white-space: nowrap;
+    font-stretch: 85%;
+    letter-spacing: -0.03em;
+  }
   .stage-left, .stage-right{ display: none; }
   .hero-stage{ height: auto; margin-top: 48px; }
   .stage-center{ position: relative; display: block; margin-inline: auto; left: auto; transform: none; width: min(94%, 560px); }
@@ -1119,6 +1125,13 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
   .contact-form{ padding: 26px 20px; }
   .compare-col{ padding: 30px 24px; }
   .footer-inner{ grid-template-columns: 1fr; }
+}
+
+@media (max-width: 380px){
+  .hero-title{ font-stretch: 78%; }
+}
+@media (max-width: 340px){
+  .hero-title{ white-space: normal; font-stretch: 80%; }
 }
 
 @media (prefers-reduced-motion: reduce){
