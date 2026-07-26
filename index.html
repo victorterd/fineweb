@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fineweb — Website-uri care aduc o grămadă de clienți</title>
+<meta name="description" content="Fineweb este o agenție de web development: landing page-uri, site-uri multipage, magazine online și software la comandă, gândite să aducă clienți.">
+<link rel="preload" href="assets/fonts/CalSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/WorkSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 44"><defs><linearGradient id="l" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="%231E7BFF"/><stop offset="1" stop-color="%2300F0D4"/></linearGradient><linearGradient id="r" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="%2300F0D4"/><stop offset="1" stop-color="%231E7BFF"/></linearGradient></defs><rect x="7" y="9" width="26" height="26" rx="8" transform="rotate(45 20 22)" fill="url(%23l)"/><rect x="31" y="9" width="26" height="26" rx="8" transform="rotate(45 44 22)" fill="url(%23r)"/><circle cx="32" cy="22" r="13" fill="%230B54F5"/></svg>'>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Sari la conținut</a>
+
+<header class="site-header">
+  <div class="nav-pill" id="nav-pill">
+    <a class="logo" href="#top" aria-label="Fineweb — acasă">
+      <svg class="logo-mark" viewBox="0 0 64 44" width="38" height="26" aria-hidden="true">
+        <defs>
+          <linearGradient id="lg-l" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#1E7BFF"/><stop offset="1" stop-color="#00F0D4"/>
+          </linearGradient>
+          <linearGradient id="lg-r" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#00F0D4"/><stop offset="1" stop-color="#1E7BFF"/>
+          </linearGradient>
+        </defs>
+        <rect x="7" y="9" width="26" height="26" rx="8" transform="rotate(45 20 22)" fill="url(#lg-l)"/>
+        <rect x="31" y="9" width="26" height="26" rx="8" transform="rotate(45 44 22)" fill="url(#lg-r)"/>
+        <circle cx="32" cy="22" r="13" fill="#0B54F5"/>
+      </svg>
+      <span>Fineweb</span>
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="#portofoliu">Portofoliu</a>
+      <a href="#servicii">Servicii</a>
+      <a href="#proces">Proces</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary btn-sm nav-cta" href="#contact">Hai să vorbim</a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Deschide meniul">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div class="hero-sky" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-a" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-b" aria-hidden="true"></div>
+
+    <div class="container hero-inner">
+      <p class="hero-badge reveal">
+        <span class="badge-spark" aria-hidden="true">✦</span>
+        Agenție de web development
+      </p>
+
+      <h1 class="hero-title reveal">
+        Website-uri care aduc<br>
+        <span class="gradient-text">o&nbsp;grămadă de&nbsp;clienți.</span>
+      </h1>
+
+      <p class="hero-sub reveal">
+        Proiectăm și dezvoltăm site-uri rapide, spectaculoase și gândite să transforme
+        vizitatorii în clienți — de la landing page, la magazin online și software la comandă.
+      </p>
+
+      <div class="hero-actions reveal">
+        <a href="#contact" class="btn btn-primary btn-lg">Cere o ofertă <span aria-hidden="true">→</span></a>
+        <a href="#portofoliu" class="btn btn-ghost btn-lg">Vezi lucrările</a>
+      </div>
+    </div>
+
+    <!-- Portfolio în perspectivă, direct în hero -->
+    <div class="hero-stage reveal" id="hero-stage" aria-label="Previzualizări din portofoliu">
+      <div class="stage-glow" aria-hidden="true"></div>
+
+      <a class="stage-card stage-left" href="#portofoliu" tabindex="-1" aria-hidden="true">
+        <span class="frame-bar"><i></i><i></i><i></i></span>
+        <img src="assets/img/portfolio/sofran.webp" alt="" loading="eager" width="1400" height="755">
+      </a>
+
+      <a class="stage-card stage-center" href="#portofoliu">
+        <span class="frame-bar"><i></i><i></i><i></i></span>
+        <img src="assets/img/portfolio/ligne.webp" alt="Website Ligne Verticale — proiect Fineweb" loading="eager" width="1400" height="754">
+      </a>
+
+      <a class="stage-card stage-right" href="#portofoliu" tabindex="-1" aria-hidden="true">
+        <span class="frame-bar"><i></i><i></i><i></i></span>
+        <img src="assets/img/portfolio/thehivesite.webp" alt="" loading="eager" width="1400" height="754">
+      </a>
+    </div>
+
+    <dl class="hero-stats reveal">
+      <div class="stat"><dt>40+</dt><dd>proiecte livrate</dd></div>
+      <div class="stat"><dt>5+</dt><dd>ani experiență</dd></div>
+      <div class="stat"><dt>98%</dt><dd>clienți mulțumiți</dd></div>
+      <div class="stat"><dt>&lt;48h</dt><dd>timp de răspuns</dd></div>
+    </dl>
+  </section>
+
+  <!-- ================= MARQUEE ================= -->
+  <section class="marquee" aria-label="Branduri cu care am lucrat">
+    <div class="marquee-track" aria-hidden="true">
+      <span>Ligne Verticale</span><i>✦</i>
+      <span>Șofran de Bucovina</span><i>✦</i>
+      <span>The Hive</span><i>✦</i>
+      <span>Ecomlab</span><i>✦</i>
+      <span>Socialy</span><i>✦</i>
+      <span>Ligne Verticale</span><i>✦</i>
+      <span>Șofran de Bucovina</span><i>✦</i>
+      <span>The Hive</span><i>✦</i>
+      <span>Ecomlab</span><i>✦</i>
+      <span>Socialy</span><i>✦</i>
+    </div>
+  </section>
+
+  <!-- ================= PORTFOLIO ================= -->
+  <section class="portfolio section" id="portofoliu">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Portofoliu</p>
+        <h2>Proiecte care vorbesc <span class="gradient-text">de la sine</span></h2>
+        <p class="section-sub">O selecție din site-urile construite pentru branduri din construcții,
+          agro, e-commerce și servicii digitale.</p>
+      </div>
+
+      <div class="bento">
+
+        <article class="bento-card card-a reveal">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="browser-url">ligne-verticale</span>
+            </div>
+            <img src="assets/img/portfolio/ligne.webp" alt="Website Ligne Verticale — pagină principală" loading="lazy" width="1400" height="754">
+          </div>
+          <div class="bento-meta">
+            <div class="bento-row">
+              <h3>Ligne Verticale</h3>
+              <span class="tag">Website corporate</span>
+            </div>
+            <p>Site de prezentare pentru o companie de construcții &amp; renovări, cu accent pe portofoliu și încredere.</p>
+          </div>
+        </article>
+
+        <article class="bento-card card-b reveal">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="browser-url">sofran-de-bucovina</span>
+            </div>
+            <img src="assets/img/portfolio/sofran.webp" alt="Website Șofran de Bucovina — pagină principală" loading="lazy" width="1400" height="755">
+          </div>
+          <div class="bento-meta">
+            <div class="bento-row">
+              <h3>Șofran de Bucovina</h3>
+              <span class="tag">Brand &amp; e-commerce</span>
+            </div>
+            <p>Poveste de brand și magazin online pentru un producător artizanal de șofran.</p>
+          </div>
+        </article>
+
+        <article class="bento-card card-c reveal">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="browser-url">the-hive</span>
+            </div>
+            <img src="assets/img/portfolio/thehivesite.webp" alt="Website The Hive — pagină principală" loading="lazy" width="1400" height="754">
+          </div>
+          <div class="bento-meta">
+            <div class="bento-row">
+              <h3>The Hive</h3>
+              <span class="tag">Magazin online</span>
+            </div>
+            <p>Magazin online pentru miere 100% românească, cu focus pe produs și conversie.</p>
+          </div>
+        </article>
+
+        <article class="bento-card card-d reveal">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="browser-url">ecomlab</span>
+            </div>
+            <img src="assets/img/portfolio/ecomlab.webp" alt="Website Ecomlab — pagină principală" loading="lazy" width="1400" height="755">
+          </div>
+          <div class="bento-meta">
+            <div class="bento-row">
+              <h3>Ecomlab</h3>
+              <span class="tag">Landing page</span>
+            </div>
+            <p>Landing page de conversie pentru o agenție de marketing dedicată magazinelor online.</p>
+          </div>
+        </article>
+
+        <article class="bento-card card-e reveal">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="browser-url">socialy</span>
+            </div>
+            <img src="assets/img/portfolio/socialy.webp" alt="Website Socialy — pagină principală" loading="lazy" width="1400" height="751">
+          </div>
+          <div class="bento-meta">
+            <div class="bento-row">
+              <h3>Socialy</h3>
+              <span class="tag">Platformă web</span>
+            </div>
+            <p>Marketplace care conectează brandurile cu creatori de content video.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="services section" id="servicii">
+    <div class="services-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Servicii</p>
+        <h2>Ce construim pentru <span class="gradient-text">afacerea ta</span></h2>
+        <p class="section-sub">Alegi ce ai nevoie acum — restul construim împreună, cu același
+          nivel de atenție la detalii.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Landingpage Design</h3>
+          <p>O singură pagină, gândită din prima linie de cod să convertească. Ideală pentru lansări, campanii și oferte.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M3 9h18M8 9v11" stroke="currentColor" stroke-width="1.7"/></svg>
+          </div>
+          <h3>Multipage Website</h3>
+          <p>Site-uri complete, cu mai multe pagini, pentru afaceri care au nevoie să-și spună povestea în detaliu.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 4h2l2.2 12.4a2 2 0 0 0 2 1.6h8a2 2 0 0 0 2-1.6L21 8H6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="21" r="1.3" fill="currentColor"/><circle cx="18" cy="21" r="1.3" fill="currentColor"/></svg>
+          </div>
+          <h3>Magazin Online</h3>
+          <p>Magazine online rapide, sigure și ușor de administrat — gata să vândă non-stop, de pe orice dispozitiv.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13 5l-2 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Dezvoltare Software</h3>
+          <p>Aplicații și soluții software personalizate, construite exact pe fluxul afacerii tale.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section class="process section" id="proces">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Cum lucrăm</p>
+        <h2>De la idee, la <span class="gradient-text">site live</span></h2>
+      </div>
+
+      <ol class="process-steps">
+        <li class="reveal">
+          <span class="step-num">01</span>
+          <h3>Discuție &amp; strategie</h3>
+          <p>Îți înțelegem afacerea, obiectivele și publicul, apoi stabilim împreună direcția potrivită.</p>
+        </li>
+        <li class="reveal">
+          <span class="step-num">02</span>
+          <h3>Design &amp; dezvoltare</h3>
+          <p>Construim un design distinctiv și îl transformăm într-un site rapid, responsive și impecabil.</p>
+        </li>
+        <li class="reveal">
+          <span class="step-num">03</span>
+          <h3>Lansare &amp; optimizare</h3>
+          <p>Lansăm site-ul și îl optimizăm continuu pentru viteză, SEO și conversii.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta-banner section" id="contact">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="cta-glow" aria-hidden="true"></div>
+        <svg class="cta-mark" viewBox="0 0 64 44" width="72" height="50" aria-hidden="true">
+          <rect x="7" y="9" width="26" height="26" rx="8" transform="rotate(45 20 22)" fill="url(#lg-l)"/>
+          <rect x="31" y="9" width="26" height="26" rx="8" transform="rotate(45 44 22)" fill="url(#lg-r)"/>
+          <circle cx="32" cy="22" r="13" fill="#0B54F5"/>
+        </svg>
+        <h2>Pregătit să aduci <span class="gradient-text">mai mulți clienți</span>?</h2>
+        <p>Hai să discutăm despre proiectul tău — răspundem în mai puțin de 48 de ore.</p>
+        <a href="mailto:salut@fineweb.ro" class="btn btn-primary btn-lg">Cere o ofertă <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a class="logo" href="#top" aria-label="Fineweb — acasă">
+        <svg class="logo-mark" viewBox="0 0 64 44" width="36" height="25" aria-hidden="true">
+          <rect x="7" y="9" width="26" height="26" rx="8" transform="rotate(45 20 22)" fill="url(#lg-l)"/>
+          <rect x="31" y="9" width="26" height="26" rx="8" transform="rotate(45 44 22)" fill="url(#lg-r)"/>
+          <circle cx="32" cy="22" r="13" fill="#0B54F5"/>
+        </svg>
+        <span>Fineweb</span>
+      </a>
+      <p>Website-uri care aduc rezultate.</p>
+    </div>
+
+    <nav class="footer-col" aria-label="Servicii">
+      <h4>Servicii</h4>
+      <a href="#servicii">Landingpage Design</a>
+      <a href="#servicii">Multipage Website</a>
+      <a href="#servicii">Magazin Online</a>
+      <a href="#servicii">Dezvoltare Software</a>
+    </nav>
+
+    <nav class="footer-col" aria-label="Companie">
+      <h4>Companie</h4>
+      <a href="#portofoliu">Portofoliu</a>
+      <a href="#proces">Proces</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:salut@fineweb.ro">salut@fineweb.ro</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 Fineweb. Toate drepturile rezervate.</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
