@@ -193,7 +193,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
   font-size: 21px;
   margin-right: auto;
 }
-.logo-mark{ height: 30px; width: auto; }
+.logo-mark{ height: 34px; width: auto; }
 .main-nav{
   display: flex;
   align-items: center;

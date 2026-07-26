@@ -1,12 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464 248">
   <defs>
     <linearGradient id="fwl" gradientUnits="userSpaceOnUse" x1="10" y1="124" x2="314" y2="124">
-      <stop offset="0" stop-color="#1E7CE8"/>
-      <stop offset="1" stop-color="#04F0D2"/>
+      <stop offset="0" stop-color="#1F7BE9"/>
+      <stop offset="0.62" stop-color="#00F2C8"/>
+      <stop offset="1" stop-color="#00F5C4"/>
     </linearGradient>
     <linearGradient id="fwr" gradientUnits="userSpaceOnUse" x1="150" y1="124" x2="454" y2="124">
-      <stop offset="0" stop-color="#04F0D2"/>
-      <stop offset="1" stop-color="#1E7CE8"/>
+      <stop offset="0" stop-color="#00F5C4"/>
+      <stop offset="0.38" stop-color="#00F2C8"/>
+      <stop offset="1" stop-color="#1F7BE9"/>
     </linearGradient>
   </defs>
   <path d="M 46.6 151.9 Q 10 124 46.6 96.1 L 125.4 35.9 Q 162 8 198.6 35.9 L 277.4 96.1 Q 314 124 277.4 151.9 L 198.6 212.1 Q 162 240 125.4 212.1 Z" fill="url(#fwl)"/>
