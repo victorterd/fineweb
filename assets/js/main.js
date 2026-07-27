@@ -30,9 +30,12 @@
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
 
-  // Contact form -> opens the user's email client with a prefilled message
+  // Contact form -> trimite datele prin FormSubmit, cu fallback pe mailto
   const form = document.getElementById('contact-form');
-  form?.addEventListener('submit', (e) => {
+  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/victorprodan17@gmail.com';
+  const FORM_FALLBACK_EMAIL = 'victorprodan17@gmail.com';
+
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.reportValidity()) return;
 
@@ -42,20 +45,58 @@
     const email = (data.get('email') || '').toString().trim();
     const service = (data.get('service') || '').toString();
     const message = (data.get('message') || '').toString().trim();
-
     const subject = `Cerere ofertă — ${name}${service ? ` (${service})` : ''}`;
-    const body = [
-      `Nume: ${name}`,
-      `Email: ${email}`,
-      phone ? `Telefon: ${phone}` : null,
-      `Serviciu: ${service}`,
-      '',
-      'Despre proiect:',
-      message,
-    ].filter(Boolean).join('\n');
 
-    window.location.href =
-      `mailto:contact@fineweb.ro?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const submitBtn = document.getElementById('form-submit');
+    const status = document.getElementById('form-status');
+    const btnHtml = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Se trimite…';
+    status.hidden = true;
+    status.classList.remove('is-error');
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: subject,
+          _template: 'table',
+          _captcha: 'false',
+          Nume: name,
+          Email: email,
+          Telefon: phone || '—',
+          Serviciu: service,
+          Mesaj: message,
+        }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      form.reset();
+      status.textContent = 'Mulțumim! Mesajul a fost trimis — revenim în maximum 48 de ore.';
+      status.hidden = false;
+      submitBtn.innerHTML = btnHtml;
+      submitBtn.disabled = false;
+    } catch (err) {
+      // fallback: deschide clientul de email cu mesajul precompletat
+      status.textContent = 'Nu am putut trimite mesajul automat. Se deschide clientul tău de email…';
+      status.classList.add('is-error');
+      status.hidden = false;
+      submitBtn.innerHTML = btnHtml;
+      submitBtn.disabled = false;
+
+      const body = [
+        `Nume: ${name}`,
+        `Email: ${email}`,
+        phone ? `Telefon: ${phone}` : null,
+        `Serviciu: ${service}`,
+        '',
+        'Despre proiect:',
+        message,
+      ].filter(Boolean).join('\n');
+      window.location.href =
+        `mailto:${FORM_FALLBACK_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
   });
 
   // Cookie consent banner (cheia si durata de 6 luni conform Politicii de Cookies)

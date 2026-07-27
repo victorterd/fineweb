@@ -1015,6 +1015,21 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
   padding-right: 42px;
   cursor: pointer;
 }
+.form-status{
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #7ff2df;
+  background: rgba(0, 240, 212, 0.08);
+  border: 1px solid rgba(0, 240, 212, 0.25);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+.form-status.is-error{
+  color: #ffb2a3;
+  background: rgba(255, 122, 92, 0.08);
+  border-color: rgba(255, 122, 92, 0.3);
+}
 .form-note{
   font-size: 13px;
   color: var(--muted-2);
