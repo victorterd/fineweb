@@ -58,6 +58,33 @@
       `mailto:contact@fineweb.ro?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 
+  // Cookie consent banner
+  const cookieBanner = document.getElementById('cookie-banner');
+  const CONSENT_KEY = 'fineweb-cookie-consent';
+
+  const closeCookieBanner = (choice) => {
+    try { localStorage.setItem(CONSENT_KEY, choice); } catch (e) { /* privat mode */ }
+    cookieBanner.classList.remove('is-open');
+    cookieBanner.addEventListener('transitionend', () => {
+      cookieBanner.hidden = true;
+    }, { once: true });
+  };
+
+  let hasConsent = null;
+  try { hasConsent = localStorage.getItem(CONSENT_KEY); } catch (e) { /* privat mode */ }
+
+  if (cookieBanner && !hasConsent) {
+    setTimeout(() => {
+      cookieBanner.hidden = false;
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        cookieBanner.classList.add('is-open');
+      }));
+    }, 1200);
+
+    document.getElementById('cookie-accept')?.addEventListener('click', () => closeCookieBanner('all'));
+    document.getElementById('cookie-necessary')?.addEventListener('click', () => closeCookieBanner('necessary'));
+  }
+
   // Subtle parallax on the hero stage (desktop, no reduced-motion)
   const stage = document.getElementById('hero-stage');
   const finePointer = window.matchMedia('(pointer: fine)').matches;
