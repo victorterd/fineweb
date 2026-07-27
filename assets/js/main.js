@@ -58,31 +58,53 @@
       `mailto:contact@fineweb.ro?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 
-  // Cookie consent banner
+  // Cookie consent banner (cheia si durata de 6 luni conform Politicii de Cookies)
   const cookieBanner = document.getElementById('cookie-banner');
-  const CONSENT_KEY = 'fineweb-cookie-consent';
+  const CONSENT_KEY = 'fw_cookie_consent';
+  const CONSENT_MAX_AGE = 6 * 30 * 24 * 60 * 60 * 1000; // ~6 luni
+
+  const readConsent = () => {
+    try {
+      const raw = localStorage.getItem(CONSENT_KEY);
+      if (!raw) return null;
+      const data = JSON.parse(raw);
+      if (!data.ts || Date.now() - data.ts > CONSENT_MAX_AGE) return null; // consimtamant expirat
+      return data.choice || null;
+    } catch (e) {
+      return null;
+    }
+  };
+
+  const openCookieBanner = () => {
+    cookieBanner.hidden = false;
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      cookieBanner.classList.add('is-open');
+    }));
+  };
 
   const closeCookieBanner = (choice) => {
-    try { localStorage.setItem(CONSENT_KEY, choice); } catch (e) { /* privat mode */ }
+    try {
+      localStorage.setItem(CONSENT_KEY, JSON.stringify({ choice, ts: Date.now() }));
+    } catch (e) { /* navigare privata */ }
     cookieBanner.classList.remove('is-open');
     cookieBanner.addEventListener('transitionend', () => {
       cookieBanner.hidden = true;
     }, { once: true });
   };
 
-  let hasConsent = null;
-  try { hasConsent = localStorage.getItem(CONSENT_KEY); } catch (e) { /* privat mode */ }
-
-  if (cookieBanner && !hasConsent) {
-    setTimeout(() => {
-      cookieBanner.hidden = false;
-      requestAnimationFrame(() => requestAnimationFrame(() => {
-        cookieBanner.classList.add('is-open');
-      }));
-    }, 1200);
-
+  if (cookieBanner) {
     document.getElementById('cookie-accept')?.addEventListener('click', () => closeCookieBanner('all'));
     document.getElementById('cookie-necessary')?.addEventListener('click', () => closeCookieBanner('necessary'));
+
+    if (!readConsent()) {
+      setTimeout(openCookieBanner, 1200);
+    }
+
+    // linkul permanent "Setari cookie-uri" din footer redeschide bannerul
+    document.getElementById('cookie-settings')?.addEventListener('click', () => {
+      openCookieBanner();
+      cookieBanner.querySelector('.btn')?.focus();
+    });
   }
 
   // Subtle parallax on the hero stage (desktop, no reduced-motion)
