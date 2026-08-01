@@ -1,4 +1,7 @@
 (() => {
+  // marcheaza ca JS-ul e activ — animatiile de reveal se aplica doar atunci
+  document.documentElement.classList.add('js');
+
   const pill = document.getElementById('nav-pill');
   const toggle = document.getElementById('nav-toggle');
 
@@ -14,9 +17,10 @@
     });
   });
 
-  // Scroll reveal
+  // Scroll reveal — doar pe ecrane mari; pe mobil continutul e vizibil imediat
   const revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && revealEls.length) {
+  const smallScreen = window.matchMedia('(max-width: 760px)').matches;
+  if (!smallScreen && 'IntersectionObserver' in window && revealEls.length) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -24,7 +28,7 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px 160px 0px' });
     revealEls.forEach(el => observer.observe(el));
   } else {
     revealEls.forEach(el => el.classList.add('is-visible'));

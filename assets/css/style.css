@@ -1282,14 +1282,18 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 }
 
 /* ============ Reveal ============ */
-.reveal{
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity .7s ease, transform .7s ease;
-}
-.reveal.is-visible{
-  opacity: 1;
-  transform: translateY(0);
+/* Se aplica doar cand JS-ul e activ (html.js) si doar pe ecrane mari —
+   pe mobil si fara JS continutul e vizibil imediat. */
+@media (min-width: 761px){
+  html.js .reveal{
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  html.js .reveal.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ============ Responsive ============ */
@@ -1331,6 +1335,13 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 
 @media (max-width: 760px){
   .hero{ padding-top: 140px; }
+  /* blur-urile animate sunt scumpe pe GPU-urile de telefon */
+  .hero-orb{ display: none; }
+  /* randare amanata pentru sectiunile de sub fold — incarcare initiala mult mai rapida */
+  .portfolio, .pain, .services, .process, .contact{
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
   .hero-title{
     white-space: nowrap;
     font-stretch: 85%;
