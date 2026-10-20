@@ -126,57 +126,73 @@
     });
   }
 
-  // Sectiunea de nise: lista interactiva cu panou (desktop) / acordeon (mobil)
-  const niseList = document.getElementById('nise-list');
-  if (niseList) {
-    const rows = [...niseList.querySelectorAll('.n-row')];
-    const npInner = document.getElementById('np-inner');
-    const npIcon = document.getElementById('np-icon');
-    const npName = document.getElementById('np-name');
-    const npDesc = document.getElementById('np-desc');
+  // Sectiunea de nise: lista tipografica cu card care urmareste cursorul / acordeon pe mobil
+  const niseBig = document.getElementById('nise-big');
+  if (niseBig) {
+    const rows = [...niseBig.querySelectorAll('.nb-row')];
+    const card = document.getElementById('nise-card');
+    const ncIcon = document.getElementById('nc-icon');
+    const ncDesc = document.getElementById('nc-desc');
+    const niseSection = niseBig.closest('.nise');
     const isMobileList = () => window.matchMedia('(max-width: 900px)').matches;
 
-    const setPanel = (row, animate = true) => {
-      npIcon.innerHTML = row.querySelector('.n-ico').innerHTML;
-      npName.textContent = row.querySelector('.n-name').textContent;
-      npDesc.textContent = row.querySelector('.n-desc').textContent;
-      if (animate) {
-        npInner.classList.remove('swap');
-        void npInner.offsetWidth; // restart animatie
-        npInner.classList.add('swap');
-      }
-    };
+    // cursorul-card (doar desktop, mouse)
+    if (card && finePointer && !reducedMotion) {
+      let tx = 0, ty = 0, cx = 0, cy = 0, raf = null, visible = false;
 
-    const activate = (row, animate = true) => {
-      rows.forEach(r => {
-        r.classList.toggle('is-active', r === row);
-        r.setAttribute('aria-expanded', String(r === row));
-      });
-      setPanel(row, animate);
-    };
-
-    rows.forEach(row => {
-      row.addEventListener('mouseenter', () => {
-        if (!isMobileList()) activate(row);
-      });
-      row.addEventListener('focus', () => {
-        if (!isMobileList()) activate(row);
-      });
-      row.addEventListener('click', () => {
-        if (isMobileList()) {
-          const wasOpen = row.classList.contains('open');
-          rows.forEach(r => { r.classList.remove('open'); r.setAttribute('aria-expanded', 'false'); });
-          if (!wasOpen) {
-            row.classList.add('open');
-            row.setAttribute('aria-expanded', 'true');
-          }
+      const loop = () => {
+        cx += (tx - cx) * 0.16;
+        cy += (ty - cy) * 0.16;
+        const tilt = Math.max(-5, Math.min(5, (tx - cx) * 0.06));
+        card.style.transform = `translate3d(${cx}px, ${cy}px, 0) rotate(${tilt.toFixed(2)}deg)`;
+        if (visible || Math.abs(tx - cx) > 0.5) {
+          raf = requestAnimationFrame(loop);
         } else {
-          activate(row);
+          raf = null;
+        }
+      };
+
+      niseBig.addEventListener('mousemove', (e) => {
+        if (isMobileList()) return;
+        const sr = niseSection.getBoundingClientRect();
+        tx = e.clientX - sr.left + 26;
+        ty = e.clientY - sr.top - 40;
+        // nu lasa cardul sa iasa din dreapta
+        tx = Math.min(tx, sr.width - 310);
+        if (!raf) { cx = tx; cy = ty; raf = requestAnimationFrame(loop); }
+      });
+
+      rows.forEach(row => {
+        row.addEventListener('mouseenter', () => {
+          if (isMobileList()) return;
+          const cs = getComputedStyle(row);
+          card.style.setProperty('--pc', cs.getPropertyValue('--pc'));
+          card.style.setProperty('--pc-soft', cs.getPropertyValue('--pc-soft'));
+          ncIcon.innerHTML = row.querySelector('.nb-ico').innerHTML;
+          ncDesc.textContent = row.querySelector('.nb-desc').textContent;
+          card.classList.add('on');
+          visible = true;
+          if (!raf) raf = requestAnimationFrame(loop);
+        });
+      });
+      niseBig.addEventListener('mouseleave', () => {
+        card.classList.remove('on');
+        visible = false;
+      });
+    }
+
+    // acordeon pe mobil
+    rows.forEach(row => {
+      row.addEventListener('click', () => {
+        if (!isMobileList()) return;
+        const wasOpen = row.classList.contains('open');
+        rows.forEach(r => { r.classList.remove('open'); r.setAttribute('aria-expanded', 'false'); });
+        if (!wasOpen) {
+          row.classList.add('open');
+          row.setAttribute('aria-expanded', 'true');
         }
       });
     });
-
-    activate(rows[0], false);
   }
 
   // Pretul creste pana la 999 cand intra in ecran
