@@ -290,46 +290,6 @@
     io.observe(suma);
   }
 
-  // Testimoniale: slider cu sageti si puncte
-  const track = document.getElementById('t-track');
-  if (track) {
-    const cards = [...track.children];
-    const dotsWrap = document.getElementById('t-dots');
-    const dots = cards.map((_, i) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.setAttribute('aria-label', `Testimonialul ${i + 1}`);
-      b.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(b);
-      return b;
-    });
-
-    let current = 0;
-    const setActive = (i) => {
-      current = i;
-      dots.forEach((d, j) => d.classList.toggle('active', j === i));
-    };
-    const goTo = (i) => {
-      const n = (i + cards.length) % cards.length;
-      track.scrollTo({ left: cards[n].offsetLeft - track.offsetLeft, behavior: 'smooth' });
-      setActive(n);
-    };
-    document.getElementById('t-prev')?.addEventListener('click', () => goTo(current - 1));
-    document.getElementById('t-next')?.addEventListener('click', () => goTo(current + 1));
-
-    // sincronizeaza punctele cand utilizatorul da swipe
-    let scrollTimer;
-    track.addEventListener('scroll', () => {
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(() => {
-        const i = Math.round(track.scrollLeft / track.clientWidth);
-        setActive(Math.min(cards.length - 1, Math.max(0, i)));
-      }, 80);
-    }, { passive: true });
-
-    setActive(0);
-  }
-
   // Formular demo -> FormSubmit, cu fallback pe mailto
   const form = document.getElementById('demo-form');
   const FORM_ENDPOINT = 'https://formsubmit.co/ajax/victorprodan17@gmail.com';
