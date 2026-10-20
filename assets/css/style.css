@@ -316,39 +316,63 @@ h1, h2, h3 {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-.problema-grid{
+.problema-list{
+  max-width: 980px;
+  margin-inline: auto;
+  border-top: 1px solid var(--border);
+}
+.p-row{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-.p-card{
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 26px 24px;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.p-card:hover{
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-soft);
-}
-.p-icon{
-  display: inline-flex;
+  grid-template-columns: 64px 1.25fr 1fr;
+  gap: 28px;
   align-items: center;
-  justify-content: center;
-  width: 44px; height: 44px;
-  border-radius: 12px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--ink);
-  margin-bottom: 18px;
+  padding: 34px 18px;
+  border-bottom: 1px solid var(--border);
+  border-radius: 14px;
+  transition: background .25s ease;
 }
-.p-card h3{
-  font-size: 1.07rem;
-  margin-bottom: 8px;
-  letter-spacing: -0.01em;
+.p-row:hover{
+  background: color-mix(in srgb, var(--pc) 5%, transparent);
 }
-.p-card p{ color: var(--muted); font-size: 0.93rem; line-height: 1.6; }
+.p-num{
+  font-family: var(--font-display);
+  font-weight: 550;
+  font-size: 1rem;
+  color: var(--pc);
+}
+.p-row h3{
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+.p-row p{
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+.p-row .mark{
+  color: var(--pc);
+  background-image: linear-gradient(var(--pc-soft), var(--pc-soft));
+  background-repeat: no-repeat;
+  background-size: 100% 46%;
+  background-position: 0 78%;
+  border-radius: 5px;
+  padding: 0 0.12em;
+  margin: 0 -0.06em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+/* markerul se "trage" cand randul intra in ecran */
+@media (min-width: 761px){
+  html.js .p-row .mark{
+    background-size: 0% 46%;
+    transition: background-size .7s cubic-bezier(.22, 1, .3, 1) .25s;
+  }
+  html.js .p-row.is-visible .mark{
+    background-size: 100% 46%;
+  }
+}
 
 .problema-final{
   margin-top: 44px;
@@ -854,7 +878,6 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
 /* ============ Responsive ============ */
 @media (max-width: 1060px){
   .nise-grid{ grid-template-columns: repeat(3, 1fr); }
-  .problema-grid{ grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 900px){
@@ -903,8 +926,13 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
   }
   .site-header.nav-open .main-nav{ padding-bottom: 76px; }
 
-  .problema-grid{ grid-template-columns: 1fr; }
   .nise-grid{ grid-template-columns: 1fr; }
+  .p-row{
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 26px 4px;
+  }
+  .p-num{ font-size: 0.9rem; }
   .n-card p{ font-size: 0.9rem; }
   .form-row{ grid-template-columns: 1fr; }
   .t-card{ padding: 32px 24px; }
@@ -921,7 +949,7 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   html.js .reveal{ opacity: 1; transform: none; transition: none; }
-  .btn, .p-card, .n-card, .d-card, .t-btn{ transition: none; }
+  .btn, .p-row, .n-card, .d-card, .t-btn{ transition: none; }
 }
 
 /* ============ Pagini legale ============ */
@@ -1081,45 +1109,6 @@ html.js body.loaded .shot-frame::after{
 @keyframes shine{ to{ transform: translateX(120%); } }
 .shot-frame{ position: relative; }
 
-/* ---- Chips plutitoare peste hero ---- */
-.hero-shot{ position: relative; }
-.chip{
-  position: absolute;
-  z-index: 3;
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 11px 18px;
-  font-size: 13.5px;
-  font-weight: 550;
-  color: var(--ink-soft);
-  box-shadow: var(--shadow-lift);
-  animation: chip-float 5.5s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-.chip-dot{
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
-}
-.chip-1{ left: 2%; top: 14%; animation-delay: -1.2s; }
-.chip-2{ right: 1%; top: 38%; animation-delay: -3.4s; }
-.chip-3{ left: 5%; top: 72%; animation-delay: -2.1s; }
-html.js .chip{ opacity: 0; }
-html.js body.loaded .chip{
-  animation: chip-in .7s cubic-bezier(.22, 1, .3, 1) forwards,
-             chip-float 5.5s ease-in-out 1.6s infinite alternate;
-}
-html.js body.loaded .chip-1{ animation-delay: .9s, 1.6s; }
-html.js body.loaded .chip-2{ animation-delay: 1.05s, 2.4s; }
-html.js body.loaded .chip-3{ animation-delay: 1.2s, 3.1s; }
-@keyframes chip-in{ from{ opacity: 0; transform: translateY(14px); } to{ opacity: 1; transform: translateY(0); } }
-@keyframes chip-float{ from{ translate: 0 -6px; } to{ translate: 0 6px; } }
-
 /* ---- Reveal cu blur pe titlurile de sectiune ---- */
 @media (min-width: 761px){
   html.js .section-head.reveal{
@@ -1133,13 +1122,10 @@ html.js body.loaded .chip-3{ animation-delay: 1.2s, 3.1s; }
 
 /* ---- Reveal in cascada pentru griduri ---- */
 @media (min-width: 761px){
-  html.js .problema-grid .reveal:nth-child(2),
   html.js .nise-grid .reveal:nth-child(2),
   html.js .demo-grid .reveal:nth-child(2){ transition-delay: .08s; }
-  html.js .problema-grid .reveal:nth-child(3),
   html.js .nise-grid .reveal:nth-child(3),
   html.js .demo-grid .reveal:nth-child(3){ transition-delay: .16s; }
-  html.js .problema-grid .reveal:nth-child(4),
   html.js .nise-grid .reveal:nth-child(4){ transition-delay: .24s; }
   html.js .nise-grid .reveal:nth-child(5){ transition-delay: .32s; }
   html.js .nise-grid .reveal:nth-child(6){ transition-delay: .06s; }
@@ -1150,10 +1136,9 @@ html.js body.loaded .chip-3{ animation-delay: 1.2s, 3.1s; }
 }
 
 /* ---- Micro-interactiuni pe carduri ---- */
-.p-icon, .n-icon{
+.n-icon{
   transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), background .2s ease, color .2s ease;
 }
-.p-card:hover .p-icon{ transform: scale(1.08) rotate(-4deg); }
 .n-card:hover .n-icon{
   transform: scale(1.1) rotate(4deg);
   background: var(--accent);
@@ -1174,23 +1159,18 @@ html.js body.loaded .chip-3{ animation-delay: 1.2s, 3.1s; }
 .faq-list details p{ overflow: hidden; }
 
 /* ---- Responsive pentru stratul de animatii ---- */
-@media (max-width: 900px){
-  .chip{ display: none; }
-}
 @media (max-width: 760px){
   html.js .shot-frame{ --shot-tilt: 0; }
 }
 @media (prefers-reduced-motion: reduce){
   html.js .hero-title .line > span,
   html.js .hero-in,
-  html.js .shot-frame,
-  html.js .chip{
+  html.js .shot-frame{
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
   }
   .shot-frame{ --shot-tilt: 0 !important; }
   .shot-frame::after{ display: none; }
-  .chip{ animation: none !important; }
   html.js .section-head.reveal{ filter: none; }
 }
