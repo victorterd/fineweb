@@ -295,23 +295,23 @@ h1, h2, h3 {
 .hero-rays{
   position: absolute;
   left: 50%;
-  top: -150px;
+  top: 74px;
   transform: translateX(-50%);
   width: min(1560px, 130vw);
-  height: calc(70% + 150px);
+  height: 68%;
   pointer-events: none;
   /* curcubeu soft, in culorile sectiunii "Suna cunoscut?" */
   background: linear-gradient(90deg,
     rgba(11, 99, 255, 0)     0%,
-    rgba(11, 99, 255, .52)   10%,
-    rgba(109, 74, 255, .50)  28%,
-    rgba(221, 70, 50, .42)   46%,
-    rgba(217, 119, 6, .46)   64%,
-    rgba(14, 138, 77, .46)   82%,
+    rgba(11, 99, 255, .50)   10%,
+    rgba(109, 74, 255, .48)  28%,
+    rgba(221, 70, 50, .40)   46%,
+    rgba(217, 119, 6, .44)   64%,
+    rgba(14, 138, 77, .44)   82%,
     rgba(11, 99, 255, 0)     100%);
-  /* gradientul curge de sus in jos */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 48%, transparent 96%);
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 48%, transparent 96%);
+  /* plin sus, se stinge continuu in jos */
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,.75) 35%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,.75) 35%, transparent 92%);
 }
 /* fascicule verticale decupate cu culoarea fundalului */
 .hero-rays::after{
@@ -1065,7 +1065,7 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
   .section{ padding: 72px 0; }
   .hero{ padding-top: 128px; }
   .hero-shot{ margin-top: 48px; }
-  .hero-rays{ top: -90px; height: calc(100% + 150px); opacity: .8; }
+  .hero-rays{ top: 64px; height: 56%; opacity: .85; }
 
   /* poza din hero: marita, decupata in dreapta, lipita de marginea ecranului */
   .hero-shot{ padding-right: 0; }
