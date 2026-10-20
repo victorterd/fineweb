@@ -291,6 +291,34 @@ h1, h2, h3 {
   margin-top: 64px;
   padding-bottom: 0;
 }
+.hero-rays{
+  position: absolute;
+  left: 50%;
+  top: -130px;
+  transform: translateX(-50%);
+  width: min(1560px, 130vw);
+  height: calc(100% + 260px);
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(11, 99, 255, 0)    0px,
+      rgba(59, 130, 255, .55) 38px,
+      rgba(11, 99, 255, 0)    76px,
+      rgba(11, 99, 255, .75)  118px,
+      rgba(11, 99, 255, 0)    160px,
+      rgba(59, 130, 255, .40) 196px,
+      rgba(11, 99, 255, 0)    232px,
+      rgba(11, 99, 255, .62)  272px,
+      rgba(11, 99, 255, 0)    312px),
+    linear-gradient(to top, rgba(11, 99, 255, .55), rgba(11, 99, 255, 0) 78%);
+  -webkit-mask-image: radial-gradient(80% 128% at 50% 98%, #000 50%, transparent 94%);
+  mask-image: radial-gradient(80% 128% at 50% 98%, #000 50%, transparent 94%);
+}
+html.js .hero-rays{ opacity: 0; }
+html.js body.loaded .hero-rays{
+  animation: rays-in 1.3s ease .5s forwards;
+}
+@keyframes rays-in{ to{ opacity: 1; } }
 .shot-frame{
   background: var(--surface);
   border: 1px solid var(--border-strong);
@@ -1024,6 +1052,8 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
   .section{ padding: 72px 0; }
   .hero{ padding-top: 128px; }
   .hero-shot{ margin-top: 48px; }
+  .hero-rays{ top: -90px; height: calc(100% + 150px); opacity: .8; }
+
   /* poza din hero: marita, decupata in dreapta, lipita de marginea ecranului */
   .hero-shot{ padding-right: 0; }
   .shot-frame{
@@ -1216,7 +1246,7 @@ html.js body.loaded .shot-frame::after{
   animation: shine 1.4s ease 1.3s forwards;
 }
 @keyframes shine{ to{ transform: translateX(120%); } }
-.shot-frame{ position: relative; }
+.shot-frame{ position: relative; z-index: 1; }
 
 /* ---- Reveal cu blur pe titlurile de sectiune ---- */
 @media (min-width: 761px){
@@ -1257,6 +1287,7 @@ html.js body.loaded .shot-frame::after{
 @media (prefers-reduced-motion: reduce){
   html.js .hero-title .line > span,
   html.js .hero-in,
+  html.js .hero-rays,
   html.js .shot-frame{
     animation: none !important;
     opacity: 1 !important;
