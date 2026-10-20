@@ -1330,32 +1330,94 @@ html.js .dx-panel.play .dx-chip.c3{ transition-delay: .45s; }
   gap: 56px;
   align-items: start;
 }
-.faq .section-head{
-  text-align: left;
-  margin: 0;
+.faq-side{
   position: sticky;
   top: 110px;
 }
+.faq .section-head{
+  text-align: left;
+  margin: 0 0 24px;
+}
+.faq-search{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 12px 18px;
+  color: var(--muted-2);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.faq-search:focus-within{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(11, 99, 255, 0.12);
+  color: var(--accent);
+}
+.faq-search input{
+  flex: 1;
+  border: none;
+  background: none;
+  font-size: 15px;
+  color: var(--ink);
+}
+.faq-search input:focus{ outline: none; }
+.faq-search input::placeholder{ color: var(--muted-2); }
+.faq-help{
+  margin-top: 22px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px 20px;
+  font-size: 0.93rem;
+  color: var(--muted);
+}
+.faq-help p{ margin-bottom: 4px; font-weight: 550; color: var(--ink); }
+.faq-help strong{ color: var(--accent); font-weight: 650; }
+.faq-help span{ margin: 0 4px; }
+.faq-help-link{
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .faq-list details{
   border-bottom: 1px solid var(--border);
+  border-radius: 14px;
+  transition: background .25s ease;
 }
-.faq-list details:first-child{ border-top: 1px solid var(--border); }
+.faq-list details:first-of-type{ border-top: 1px solid var(--border); }
+.faq-list details[open]{
+  background: color-mix(in srgb, var(--qc, var(--accent)) 5%, transparent);
+}
 .faq-list summary{
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px 2px;
+  gap: 16px;
+  padding: 19px 14px;
   font-family: var(--font-display);
   font-weight: 550;
   font-size: 1.05rem;
   letter-spacing: -0.01em;
   transition: color .15s ease;
 }
-.faq-list summary:hover{ color: var(--accent); }
+.faq-num{
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  font-weight: 550;
+  color: var(--qc, var(--accent));
+  opacity: .6;
+  transition: opacity .2s ease;
+  font-variant-numeric: tabular-nums;
+}
+.faq-list summary:hover{ color: var(--qc, var(--accent)); }
+.faq-list summary:hover .faq-num,
+.faq-list details[open] .faq-num{ opacity: 1; }
+.faq-list details[open] summary{ color: var(--qc, var(--accent)); }
 .faq-plus{
   position: relative;
   flex-shrink: 0;
+  margin-left: auto;
   width: 22px; height: 22px;
 }
 .faq-plus::before, .faq-plus::after{
@@ -1371,11 +1433,35 @@ html.js .dx-panel.play .dx-chip.c3{ transition-delay: .45s; }
 details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
 .faq-list details p{
   color: var(--muted);
-  padding: 0 44px 20px 2px;
+  padding: 0 50px 20px 44px;
+  font-size: 0.97rem;
+  overflow: hidden;
+}
+.faq-empty{
+  padding: 22px 4px;
+  color: var(--muted);
   font-size: 0.97rem;
 }
+.faq-empty a{
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
-/* ============ Programeaza ============ */
+/* intrebarile intra in cascada */
+@media (min-width: 761px){
+  html.js .faq-list details.reveal:nth-child(2){ transition-delay: .04s; }
+  html.js .faq-list details.reveal:nth-child(3){ transition-delay: .08s; }
+  html.js .faq-list details.reveal:nth-child(4){ transition-delay: .12s; }
+  html.js .faq-list details.reveal:nth-child(5){ transition-delay: .16s; }
+  html.js .faq-list details.reveal:nth-child(6){ transition-delay: .20s; }
+  html.js .faq-list details.reveal:nth-child(7){ transition-delay: .24s; }
+  html.js .faq-list details.reveal:nth-child(8){ transition-delay: .28s; }
+  html.js .faq-list details.reveal:nth-child(9){ transition-delay: .32s; }
+  html.js .faq-list details.reveal:nth-child(10){ transition-delay: .36s; }
+}
+
+/* ============ Programeaza ============ *//* ============ Programeaza ============ */
 .prog-card{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1565,7 +1651,9 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
   }
 
   .faq-wrap{ grid-template-columns: 1fr; gap: 36px; }
-  .faq .section-head{ position: static; text-align: center; margin-inline: auto; }
+  .faq-side{ position: static; }
+  .faq .section-head{ text-align: center; margin-inline: auto; }
+  .faq-list details p{ padding: 0 14px 18px 44px; }
   .prog-card{ grid-template-columns: 1fr; gap: 40px; padding: 40px 28px; }
   .footer-inner{ grid-template-columns: 1fr 1fr; }
 }
