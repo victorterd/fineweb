@@ -549,43 +549,6 @@ h1, h2, h3 {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-.feats-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-.feat-card{
-  display: grid;
-  gap: 26px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 34px;
-  overflow: hidden;
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-.feat-card:hover{
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lift);
-}
-.feat-a{
-  grid-column: 1 / -1;
-  grid-template-columns: 1fr 1.1fr;
-  align-items: center;
-  background: linear-gradient(135deg, #eef4ff, #fafbff 60%);
-}
-.feat-b{ background: linear-gradient(135deg, #e9f6ee, #fafdfb 60%); }
-.feat-c{ background: linear-gradient(135deg, #f1edff, #fbfaff 60%); }
-.feat-text h3{
-  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
-  margin-bottom: 12px;
-}
-.feat-text p{
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.65;
-  max-width: 460px;
-}
-
 /* mini-interfete */
 .fp-panel{
   background: var(--surface);
@@ -663,7 +626,7 @@ h1, h2, h3 {
   background: linear-gradient(90deg, #0e8a4d, #35c27a);
   transition: width 1s cubic-bezier(.22, 1, .3, 1) .35s;
 }
-.reveal.is-visible .fp-bar i, html:not(.js) .fp-bar i{ width: 64%; }
+.fs-slide.play .fp-bar i, html:not(.js) .fp-bar i{ width: 64%; }
 .fp-row{
   display: flex;
   align-items: center;
@@ -731,20 +694,164 @@ h1, h2, h3 {
   50%{ box-shadow: 0 0 0 7px rgba(109, 74, 255, 0.10); }
 }
 
-/* notificarile intra pe rand cand sectiunea devine vizibila */
-@media (min-width: 761px){
-  html.js .feat-a .fp-notif{
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity .45s ease, transform .45s cubic-bezier(.22, 1, .3, 1);
+/* ---- scena cu scroll (desktop) ---- */
+.feats-show{ --fc: #0b63ff; --fc-soft: #e9f0ff; }
+.feats-show[data-step="1"]{ --fc: #0e8a4d; --fc-soft: #d9f0e2; }
+.feats-show[data-step="2"]{ --fc: #6d4aff; --fc-soft: #e9e3ff; }
+
+@media (min-width: 901px){
+  .feats-show{ height: 240vh; }
+  .fs-pin{
+    position: sticky;
+    top: 86px;
+    height: min(calc(100vh - 110px), 640px);
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items: center;
   }
-  html.js .feat-a.is-visible .fp-notif{ opacity: 1; transform: none; }
-  html.js .feat-a.is-visible .n1{ transition-delay: .3s; }
-  html.js .feat-a.is-visible .n2{ transition-delay: .45s; }
-  html.js .feat-a.is-visible .n3{ transition-delay: .6s; }
-  html.js .feats-grid .feat-b.reveal.is-visible{ transition-delay: .08s; }
-  html.js .feats-grid .feat-c.reveal.is-visible{ transition-delay: .16s; }
 }
+
+.fs-left{
+  display: flex;
+  gap: 26px;
+}
+.fs-progress{
+  position: relative;
+  width: 3px;
+  border-radius: 999px;
+  background: var(--border);
+  align-self: stretch;
+}
+.fs-progress i{
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  height: 0%;
+  border-radius: 999px;
+  background: var(--fc);
+  transition: background .5s ease;
+}
+.fs-items{ display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.fs-item{
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 14px;
+  text-align: left;
+  padding: 18px 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background .3s ease, opacity .3s ease;
+  opacity: .42;
+}
+.fs-item.active{
+  opacity: 1;
+  background: color-mix(in srgb, var(--fc) 6%, transparent);
+}
+.fs-item:hover{ opacity: .85; }
+.fs-item.active:hover{ opacity: 1; }
+.fs-num{
+  font-family: var(--font-display);
+  font-weight: 550;
+  font-size: 0.95rem;
+  color: var(--fc);
+  padding-top: 5px;
+}
+.fs-item h3{
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  margin-bottom: 8px;
+  letter-spacing: -0.015em;
+}
+.fs-item p{
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.fs-item:not(.active) p{ display: none; }
+
+.fs-right{ position: relative; }
+.fs-glow{
+  position: absolute;
+  inset: -40px;
+  border-radius: 50%;
+  background-color: var(--fc);
+  opacity: .10;
+  filter: blur(70px);
+  transition: background-color .6s ease;
+  pointer-events: none;
+}
+.fs-screen{
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lift);
+  padding: 0 24px 24px;
+  min-height: 380px;
+  overflow: hidden;
+}
+.fs-chrome{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 15px 0 13px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.fs-chrome i{
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+.fs-tag{
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fc);
+  background: var(--fc-soft);
+  padding: 4px 12px;
+  border-radius: 999px;
+  transition: background .5s ease, color .5s ease;
+}
+.fs-slide{
+  position: absolute;
+  left: 24px; right: 24px;
+  top: 68px;
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity .45s ease, transform .55s cubic-bezier(.22, 1, .3, 1);
+  pointer-events: none;
+}
+.fs-slide.active{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.fs-slide.leaving{ transform: translateY(-30px); }
+.fp-dot.wait{ background: #d97706; }
+
+/* notificarile intra pe rand cand slide-ul devine activ */
+html.js .fs-slide .fp-notif{
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .45s ease, transform .45s cubic-bezier(.22, 1, .3, 1);
+}
+html.js .fs-slide.play .fp-notif{ opacity: 1; transform: none; }
+html.js .fs-slide.play .n1{ transition-delay: .25s; }
+html.js .fs-slide.play .n2{ transition-delay: .4s; }
+html.js .fs-slide.play .n3{ transition-delay: .55s; }
+
+/* bifele din fisa clientului apar in cascada */
+html.js .fs-slide .fp-steps li{
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity .4s ease, transform .4s cubic-bezier(.22, 1, .3, 1);
+}
+html.js .fs-slide.play .fp-steps li{ opacity: 1; transform: none; }
+html.js .fs-slide.play .fp-steps li:nth-child(1){ transition-delay: .2s; }
+html.js .fs-slide.play .fp-steps li:nth-child(2){ transition-delay: .35s; }
+html.js .fs-slide.play .fp-steps li:nth-child(3){ transition-delay: .5s; }
+html.js .fs-slide.play .fp-steps li:nth-child(4){ transition-delay: .65s; }
 
 .feats-final{
   margin-top: 40px;
@@ -1228,9 +1335,29 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
 .nowrap{ white-space: nowrap; }
 
 @media (max-width: 900px){
-  .feats-grid{ grid-template-columns: 1fr; }
-  .feat-a{ grid-template-columns: 1fr; }
-  .feat-card{ padding: 26px 22px; }
+  .fs-pin{ display: block; }
+  .fs-progress, .fs-glow{ display: none; }
+  .fs-items{ display: block; }
+  .fs-item{
+    opacity: 1;
+    padding: 20px 4px 8px;
+    grid-template-columns: 34px 1fr;
+    cursor: default;
+  }
+  .fs-item p{ display: block !important; }
+  .fs-screen{
+    position: static;
+    min-height: 0;
+    padding: 18px;
+    margin: 6px 0 18px;
+  }
+  .fs-chrome{ display: none; }
+  .fs-slide{
+    position: static;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
   .nise-card{ display: none; }
   .nb-row{ grid-template-columns: 40px 1fr 26px; padding: 16px 6px; gap: 12px; }
   .nb-name{
@@ -1303,9 +1430,9 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   html.js .reveal{ opacity: 1; transform: none; transition: none; }
-  .btn, .p-row, .nb-row, .nb-name, .nb-arrow, .nise-card, .d-card, .t-btn, .feat-card{ transition: none; }
+  .btn, .p-row, .nb-row, .nb-name, .nb-arrow, .nise-card, .d-card, .t-btn, .fs-slide, .fs-item{ transition: none; }
   .fp-steps li.now i{ animation: none; }
-  html.js .feat-a .fp-notif{ opacity: 1; transform: none; transition: none; }
+  html.js .fs-slide .fp-notif, html.js .fs-slide .fp-steps li{ opacity: 1; transform: none; transition: none; }
   .fp-bar i{ transition: none; width: 64% !important; }
   html.js .nise-big .nb-row{ opacity: 1; transform: none; transition: none; }
 }

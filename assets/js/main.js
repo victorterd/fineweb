@@ -195,6 +195,78 @@
     });
   }
 
+  // Functionalitati: scena scrollytelling (desktop) / stiva (mobil)
+  const show = document.getElementById('feats-show');
+  if (show) {
+    const items = [...show.querySelectorAll('.fs-item')];
+    const slides = [...show.querySelectorAll('.fs-slide')];
+    const bar = document.getElementById('fs-bar');
+    const tag = document.getElementById('fs-tag');
+    const staticFeats = window.matchMedia('(max-width: 900px)').matches || reducedMotion;
+
+    if (staticFeats) {
+      // mobil: fiecare slide se muta sub titlul lui si ruleaza animatiile la vedere
+      items.forEach((item, i) => {
+        if (slides[i]) item.after(slides[i]);
+      });
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('active', 'play'); io.unobserve(e.target); }
+          });
+        }, { threshold: 0.3 });
+        slides.forEach(s => io.observe(s));
+      } else {
+        slides.forEach(s => s.classList.add('active', 'play'));
+      }
+    } else {
+      let current = 0, ticking = false;
+
+      const setStep = (step) => {
+        if (step === current) return;
+        current = step;
+        show.dataset.step = String(step);
+        items.forEach((it, i) => it.classList.toggle('active', i === step));
+        slides.forEach((sl, i) => {
+          sl.classList.toggle('leaving', i < step);
+          if (i === step) {
+            sl.classList.add('active');
+            sl.classList.remove('play');
+            void sl.offsetWidth; // reporneste animatiile interne
+            sl.classList.add('play');
+            sl.setAttribute('aria-hidden', 'false');
+          } else {
+            sl.classList.remove('active');
+            sl.setAttribute('aria-hidden', 'true');
+          }
+        });
+        if (tag) tag.textContent = slides[step].dataset.tag;
+      };
+
+      const update = () => {
+        ticking = false;
+        const rect = show.getBoundingClientRect();
+        const total = show.offsetHeight - window.innerHeight;
+        const p = Math.min(1, Math.max(0, -rect.top / Math.max(1, total)));
+        if (bar) bar.style.height = `${(p * 100).toFixed(1)}%`;
+        setStep(Math.min(slides.length - 1, Math.floor(p * slides.length)));
+      };
+      window.addEventListener('scroll', () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }, { passive: true });
+      update();
+
+      // click pe un titlu -> sare la pasul respectiv
+      items.forEach((item, i) => {
+        item.addEventListener('click', () => {
+          const total = show.offsetHeight - window.innerHeight;
+          const top = window.scrollY + show.getBoundingClientRect().top;
+          window.scrollTo({ top: top + total * ((i + 0.55) / slides.length), behavior: 'smooth' });
+        });
+      });
+    }
+  }
+
   // Pretul creste pana la 999 cand intra in ecran
   const suma = document.getElementById('pret-suma');
   if (suma && 'IntersectionObserver' in window && !reducedMotion) {

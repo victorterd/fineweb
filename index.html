@@ -233,75 +233,91 @@
           astea sunt cele trei lucruri pe care clienții nu le-ar mai da înapoi.</p>
       </div>
 
-      <div class="feats-grid">
+      <div class="feats-show reveal" id="feats-show" data-step="0">
+        <div class="fs-pin">
+          <div class="fs-left">
+            <div class="fs-progress" aria-hidden="true"><i id="fs-bar"></i></div>
+            <div class="fs-items">
 
-        <article class="feat-card feat-a reveal">
-          <div class="feat-text">
-            <h3>Îți spune singură ce ai de făcut azi</h3>
-            <p>Deschizi platforma dimineața și vezi exact: pe cine suni, ce lucrări au termen azi
-              și ce plăți au întârziat. Nimic nu se mai pierde.</p>
-          </div>
-          <div class="feat-preview" aria-hidden="true">
-            <div class="fp-panel">
-              <div class="fp-head">
-                <strong>Azi</strong>
-                <span class="fp-badge">3 de făcut</span>
-              </div>
-              <div class="fp-notif n1" style="--nc:#d97706; --nc-soft:#fdeed3;">
-                <i></i>
-                <div><strong>Sună-l pe dl. Popescu</strong><span>polița expiră în 3 zile</span></div>
-              </div>
-              <div class="fp-notif n2" style="--nc:#0b63ff; --nc-soft:#e9f0ff;">
-                <i></i>
-                <div><strong>Trimite oferta — renovare baie</strong><span>promisă pentru azi</span></div>
-              </div>
-              <div class="fp-notif n3" style="--nc:#dd4632; --nc-soft:#fde4df;">
-                <i></i>
-                <div><strong>Încasare întârziată — 2.100 lei</strong><span>Imperial Stone · de 8 zile</span></div>
-              </div>
+              <button type="button" class="fs-item active" data-step="0" style="--fc:#0b63ff; --fc-soft:#e9f0ff;">
+                <span class="fs-num">01</span>
+                <span class="fs-body">
+                  <h3>Îți spune singură ce ai de făcut azi</h3>
+                  <p>Deschizi platforma dimineața și vezi exact: pe cine suni, ce lucrări au termen azi
+                    și ce plăți au întârziat. Nimic nu se mai pierde.</p>
+                </span>
+              </button>
+
+              <button type="button" class="fs-item" data-step="1" style="--fc:#0e8a4d; --fc-soft:#d9f0e2;">
+                <span class="fs-num">02</span>
+                <span class="fs-body">
+                  <h3>Banii, la zi, fără să calculezi nimic</h3>
+                  <p>Vezi oricând cât ai încasat, cât mai ai de primit și cine întârzie cu plata.
+                    Pe lună, pe proiect sau pe client.</p>
+                </span>
+              </button>
+
+              <button type="button" class="fs-item" data-step="2" style="--fc:#6d4aff; --fc-soft:#e9e3ff;">
+                <span class="fs-num">03</span>
+                <span class="fs-body">
+                  <h3>Fișa completă a fiecărui client</h3>
+                  <p>Tot istoricul într-un singur loc: lucrări, documente, discuții și plăți.
+                    Oricine din echipă preia un client în două minute.</p>
+                </span>
+              </button>
+
             </div>
           </div>
-        </article>
 
-        <article class="feat-card feat-b reveal">
-          <div class="feat-text">
-            <h3>Banii, la zi, fără să calculezi nimic</h3>
-            <p>Vezi oricând cât ai încasat, cât mai ai de primit și cine întârzie cu plata.
-              Pe lună, pe proiect sau pe client.</p>
-          </div>
-          <div class="feat-preview" aria-hidden="true">
-            <div class="fp-panel">
-              <span class="fp-label">De încasat luna asta</span>
-              <p class="fp-sum">24.600 lei</p>
-              <div class="fp-bar"><i></i></div>
-              <div class="fp-row"><span class="fp-dot ok"></span>Încasat<strong>15.700 lei</strong></div>
-              <div class="fp-row"><span class="fp-dot bad"></span>Restant<strong>3.200 lei</strong></div>
-            </div>
-          </div>
-        </article>
+          <div class="fs-right">
+            <div class="fs-glow" aria-hidden="true"></div>
+            <div class="fs-screen">
+              <div class="fs-chrome" aria-hidden="true"><i></i><i></i><i></i><span class="fs-tag" id="fs-tag">Pe pilot automat</span></div>
 
-        <article class="feat-card feat-c reveal">
-          <div class="feat-text">
-            <h3>Fișa completă a fiecărui client</h3>
-            <p>Tot istoricul într-un singur loc: lucrări, documente, discuții și plăți.
-              Oricine din echipă preia un client în două minute.</p>
-          </div>
-          <div class="feat-preview" aria-hidden="true">
-            <div class="fp-panel">
-              <div class="fp-client">
-                <span class="fp-avatar">AM</span>
-                <div><strong>Andrei Marin</strong><span>Renovare completă · Apt. 4 camere</span></div>
+              <div class="fs-slide active play" data-step="0" data-tag="Pe pilot automat" aria-hidden="false">
+                <div class="fp-head">
+                  <strong>Azi</strong>
+                  <span class="fp-badge">3 de făcut</span>
+                </div>
+                <div class="fp-notif n1" style="--nc:#d97706; --nc-soft:#fdeed3;">
+                  <i></i>
+                  <div><strong>Sună-l pe dl. Popescu</strong><span>polița expiră în 3 zile</span></div>
+                </div>
+                <div class="fp-notif n2" style="--nc:#0b63ff; --nc-soft:#e9f0ff;">
+                  <i></i>
+                  <div><strong>Trimite oferta — renovare baie</strong><span>promisă pentru azi</span></div>
+                </div>
+                <div class="fp-notif n3" style="--nc:#dd4632; --nc-soft:#fde4df;">
+                  <i></i>
+                  <div><strong>Încasare întârziată — 2.100 lei</strong><span>Imperial Stone · de 8 zile</span></div>
+                </div>
               </div>
-              <ol class="fp-steps">
-                <li class="done"><i></i>Ofertă acceptată</li>
-                <li class="done"><i></i>Avans încasat</li>
-                <li class="now"><i></i>În lucru — săpt. 3 din 5</li>
-                <li><i></i>Predare și plată finală</li>
-              </ol>
+
+              <div class="fs-slide" data-step="1" data-tag="În timp real" aria-hidden="true">
+                <span class="fp-label">De încasat luna asta</span>
+                <p class="fp-sum">24.600 lei</p>
+                <div class="fp-bar"><i></i></div>
+                <div class="fp-row"><span class="fp-dot ok"></span>Încasat<strong>15.700 lei</strong></div>
+                <div class="fp-row"><span class="fp-dot bad"></span>Restant<strong>3.200 lei</strong></div>
+                <div class="fp-row"><span class="fp-dot wait"></span>Scadente săpt. asta<strong>5.700 lei</strong></div>
+              </div>
+
+              <div class="fs-slide" data-step="2" data-tag="Istoric complet" aria-hidden="true">
+                <div class="fp-client">
+                  <span class="fp-avatar">AM</span>
+                  <div><strong>Andrei Marin</strong><span>Renovare completă · Apt. 4 camere</span></div>
+                </div>
+                <ol class="fp-steps">
+                  <li class="done"><i></i>Ofertă acceptată</li>
+                  <li class="done"><i></i>Avans încasat</li>
+                  <li class="now"><i></i>În lucru — săpt. 3 din 5</li>
+                  <li><i></i>Predare și plată finală</li>
+                </ol>
+              </div>
+
             </div>
           </div>
-        </article>
-
+        </div>
       </div>
 
       <p class="feats-final reveal">Totul e făcut <strong>custom, special pentru firma ta</strong> —
