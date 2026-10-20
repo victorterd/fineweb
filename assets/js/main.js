@@ -27,6 +27,11 @@
     });
   });
 
+  // la prima navigare interna randam tot, ca ancorele sa aterizeze exact
+  document.querySelectorAll('a[href*="#"]').forEach(a => {
+    a.addEventListener('click', () => document.body.classList.add('cv-off'));
+  });
+
   // Reveal la scroll — doar pe ecrane mari
   const revealEls = document.querySelectorAll('.reveal');
   const smallScreen = window.matchMedia('(max-width: 760px)').matches;
