@@ -1061,6 +1061,20 @@ html.js .dx-panel.play .dx-chip.c3{ transition-delay: .45s; }
 .demo-final strong{ color: var(--ink); }
 
 /* ============ Testimoniale ============ */
+/* fundal foto cu overlay inchis */
+.testimoniale{
+  isolation: isolate;
+  background-color: #101014;
+  background-image:
+    linear-gradient(180deg, rgba(13,13,17,.88), rgba(13,13,17,.76) 45%, rgba(13,13,17,.9)),
+    url('../img/testimoniale-bg.webp');
+  background-size: cover;
+  background-position: center;
+}
+.testimoniale .tq blockquote{ color: #fff; }
+.testimoniale .tq figcaption strong{ color: #fff; }
+.testimoniale .tq figcaption span:not(.tm-avatar){ color: rgba(255,255,255,.62); }
+
 /* citatul-vedeta */
 .tq{
   max-width: 880px;
