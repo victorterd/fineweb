@@ -1024,7 +1024,12 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
   .section{ padding: 72px 0; }
   .hero{ padding-top: 128px; }
   .hero-shot{ margin-top: 48px; }
-  /* poza din hero: marita si decupata in dreapta, ca sa fie lizibila */
+  /* poza din hero: marita, decupata in dreapta, lipita de marginea ecranului */
+  .hero-shot{ padding-right: 0; }
+  .shot-frame{
+    border-top-right-radius: 0;
+    border-right: none;
+  }
   .shot-frame img{
     width: 188%;
     max-width: none;
