@@ -115,25 +115,6 @@
 
   }
 
-  // FAQ: cautare live printre intrebari
-  const faqInput = document.getElementById('faq-q');
-  if (faqInput) {
-    const faqEmpty = document.getElementById('faq-empty');
-    const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    faqInput.addEventListener('input', () => {
-      const q = norm(faqInput.value.trim());
-      let visible = 0;
-      faqItems.forEach(d => {
-        const match = !q || norm(d.textContent).includes(q);
-        d.style.display = match ? '' : 'none';
-        if (match) visible++;
-        if (q && match && q.length > 2) d.open = true;
-        if (!q) d.open = false;
-      });
-      faqEmpty.hidden = visible > 0;
-    });
-  }
-
   // Exemple: comutator intre cele trei tipuri de firma
   const dx = document.getElementById('dx');
   if (dx) {
