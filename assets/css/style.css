@@ -292,46 +292,6 @@ h1, h2, h3 {
   margin-top: 64px;
   padding-bottom: 0;
 }
-.hero-rays{
-  position: absolute;
-  left: 50%;
-  top: 74px;
-  transform: translateX(-50%);
-  width: min(1560px, 130vw);
-  height: 68%;
-  pointer-events: none;
-  /* curcubeu soft, in culorile sectiunii "Suna cunoscut?" */
-  background: linear-gradient(90deg,
-    rgba(11, 99, 255, 0)     0%,
-    rgba(11, 99, 255, .50)   10%,
-    rgba(109, 74, 255, .48)  28%,
-    rgba(221, 70, 50, .40)   46%,
-    rgba(217, 119, 6, .44)   64%,
-    rgba(14, 138, 77, .44)   82%,
-    rgba(11, 99, 255, 0)     100%);
-  /* plin sus, se stinge continuu in jos */
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,.75) 35%, transparent 92%);
-  mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,.75) 35%, transparent 92%);
-}
-/* fascicule verticale decupate cu culoarea fundalului */
-.hero-rays::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(90deg,
-    rgba(247, 246, 243, 0)    0px,
-    rgba(247, 246, 243, .9)   34px,
-    rgba(247, 246, 243, 0)    64px,
-    rgba(247, 246, 243, .55) 102px,
-    rgba(247, 246, 243, 0)   138px,
-    rgba(247, 246, 243, .8)  172px,
-    rgba(247, 246, 243, 0)   212px);
-}
-html.js .hero-rays{ opacity: 0; }
-html.js body.loaded .hero-rays{
-  animation: rays-in 1.3s ease .5s forwards;
-}
-@keyframes rays-in{ to{ opacity: 1; } }
 .shot-frame{
   background: var(--surface);
   border: 1px solid var(--border-strong);
@@ -1065,7 +1025,6 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
   .section{ padding: 72px 0; }
   .hero{ padding-top: 128px; }
   .hero-shot{ margin-top: 48px; }
-  .hero-rays{ top: 64px; height: 56%; opacity: .85; }
 
   /* poza din hero: marita, decupata in dreapta, lipita de marginea ecranului */
   .hero-shot{ padding-right: 0; }
@@ -1300,7 +1259,6 @@ html.js body.loaded .shot-frame::after{
 @media (prefers-reduced-motion: reduce){
   html.js .hero-title .line > span,
   html.js .hero-in,
-  html.js .hero-rays,
   html.js .shot-frame{
     animation: none !important;
     opacity: 1 !important;
