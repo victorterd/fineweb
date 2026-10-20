@@ -113,16 +113,33 @@
       btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
     });
 
-    // Tilt 3D discret pe cardurile demo
-    document.querySelectorAll('.d-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5;
-        const y = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform =
-          `perspective(900px) rotateY(${(x * 4).toFixed(2)}deg) rotateX(${(-y * 4).toFixed(2)}deg) translateY(-4px)`;
+  }
+
+  // Exemple: comutator intre cele trei tipuri de firma
+  const dx = document.getElementById('dx');
+  if (dx) {
+    const tabs = [...dx.querySelectorAll('.dx-tab')];
+    const panels = [...dx.querySelectorAll('.dx-panel')];
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const ex = tab.dataset.ex;
+        if (dx.dataset.ex === ex) return;
+        dx.dataset.ex = ex;
+        tabs.forEach(t => {
+          t.classList.toggle('active', t === tab);
+          t.setAttribute('aria-selected', String(t === tab));
+        });
+        panels.forEach(p => {
+          if (p.dataset.ex === ex) {
+            p.classList.add('active');
+            p.classList.remove('play');
+            void p.offsetWidth; // reporneste intrarea chips-urilor
+            p.classList.add('play');
+          } else {
+            p.classList.remove('active', 'play');
+          }
+        });
       });
-      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
     });
   }
 

@@ -335,60 +335,84 @@
           apropiat de firma ta și vezi platforma în acțiune.</p>
       </div>
 
-      <div class="demo-grid">
-        <article class="d-card reveal">
-          <div class="d-media" data-demo="constructii">
-            <span class="d-play" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8.5 5.8v12.4a1 1 0 0 0 1.5.9l10-6.2a1 1 0 0 0 0-1.8l-10-6.2a1 1 0 0 0-1.5.9Z" fill="currentColor"/></svg>
+      <div class="dx reveal" id="dx" data-ex="0">
+        <div class="dx-tabs" role="tablist" aria-label="Alege tipul de firmă">
+
+          <button type="button" class="dx-tab active" data-ex="0" role="tab" aria-selected="true"
+                  style="--xc:#0b63ff; --xc-soft:#e9f0ff;">
+            <span class="dx-ico" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m3 11 9-7 9 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 9.5V20h13V9.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M10 20v-5.5h4V20" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
             </span>
-            <span class="d-soon">Clip demo în curând</span>
-          </div>
-          <div class="d-body">
-            <h3>Firmă de construcții și instalații</h3>
-            <p class="d-for">Pentru construcții, renovări, instalații, fotovoltaice, termopane.</p>
-            <ul class="checklist">
+            <span class="dx-tab-txt"><strong>Construcții și instalații</strong><em>renovări, fotovoltaice, termopane</em></span>
+          </button>
+
+          <button type="button" class="dx-tab" data-ex="1" role="tab" aria-selected="false"
+                  style="--xc:#0e8a4d; --xc-soft:#d9f0e2;">
+            <span class="dx-ico" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19.5V13M9.4 19.5V9M14.8 19.5v-8M20 19.5V5.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m4.5 9 5-3.6 5 2.1 4.6-3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="dx-tab-txt"><strong>Agenți de vânzări</strong><em>distribuitori, imobiliare, brokeri</em></span>
+          </button>
+
+          <button type="button" class="dx-tab" data-ex="2" role="tab" aria-selected="false"
+                  style="--xc:#6d4aff; --xc-soft:#e9e3ff;">
+            <span class="dx-ico" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="5" y="3.5" width="14" height="17" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M9 3.5V6M15 3.5V6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m8.8 13 2.1 2.1 4.2-4.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="dx-tab-txt"><strong>Clienți și programări</strong><em>service auto, verificări, contabilitate</em></span>
+          </button>
+
+        </div>
+
+        <div class="dx-stage">
+
+          <div class="dx-panel active play" data-ex="0">
+            <span class="dx-chip c1">Fiecare lucrare, pe etape</span>
+            <span class="dx-chip c2">Ce echipă lucrează unde</span>
+            <span class="dx-chip c3">Încasat vs. de primit</span>
+            <ul class="dx-points checklist">
               <li>Fiecare lucrare pe etape, de la ofertă la predare</li>
               <li>Ce echipă lucrează unde</li>
               <li>Ce s-a încasat și ce mai ai de primit</li>
             </ul>
           </div>
-        </article>
 
-        <article class="d-card reveal">
-          <div class="d-media" data-demo="vanzari">
-            <span class="d-play" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8.5 5.8v12.4a1 1 0 0 0 1.5.9l10-6.2a1 1 0 0 0 0-1.8l-10-6.2a1 1 0 0 0-1.5.9Z" fill="currentColor"/></svg>
-            </span>
-            <span class="d-soon">Clip demo în curând</span>
-          </div>
-          <div class="d-body">
-            <h3>Firmă cu agenți de vânzări</h3>
-            <p class="d-for">Pentru distribuitori, agenții imobiliare, brokeri, echipe de vânzări.</p>
-            <ul class="checklist">
+          <div class="dx-panel" data-ex="1">
+            <span class="dx-chip c1">Clienții fiecărui agent</span>
+            <span class="dx-chip c2">Follow-up automat</span>
+            <span class="dx-chip c3">Target și comisioane</span>
+            <ul class="dx-points checklist">
               <li>Clienții fiecărui agent, pe statusuri</li>
               <li>Reminder automat pentru follow-up</li>
               <li>Vânzări față de target și comisioane calculate singure</li>
             </ul>
           </div>
-        </article>
 
-        <article class="d-card reveal">
-          <div class="d-media" data-demo="servicii">
-            <span class="d-play" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8.5 5.8v12.4a1 1 0 0 0 1.5.9l10-6.2a1 1 0 0 0 0-1.8l-10-6.2a1 1 0 0 0-1.5.9Z" fill="currentColor"/></svg>
-            </span>
-            <span class="d-soon">Clip demo în curând</span>
-          </div>
-          <div class="d-body">
-            <h3>Firmă cu mulți clienți și programări</h3>
-            <p class="d-for">Pentru service-uri auto, verificări tehnice, contabilitate, curățenie.</p>
-            <ul class="checklist">
+          <div class="dx-panel" data-ex="2">
+            <span class="dx-chip c1">Fișa fiecărui client</span>
+            <span class="dx-chip c2">Te anunță pe cine suni</span>
+            <span class="dx-chip c3">Programări și restanțe</span>
+            <ul class="dx-points checklist">
               <li>Fișa fiecărui client, cu tot istoricul</li>
               <li>Te anunță singur pe cine trebuie să suni</li>
               <li>Programări și plăți restante dintr-o privire</li>
             </ul>
           </div>
-        </article>
+
+          <div class="dx-player" aria-hidden="true">
+            <div class="dx-screen">
+              <span class="dx-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M8.5 5.8v12.4a1 1 0 0 0 1.5.9l10-6.2a1 1 0 0 0 0-1.8l-10-6.2a1 1 0 0 0-1.5.9Z" fill="currentColor"/></svg></span>
+              <span class="dx-soon">Clip demo în curând</span>
+            </div>
+            <div class="dx-bar">
+              <div class="dx-progress"><i></i><span class="dx-m m1"></span><span class="dx-m m2"></span><span class="dx-m m3"></span></div>
+              <span class="dx-time">1:47</span>
+              <svg class="dx-icn" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M11 5 6.5 8.5H3v7h3.5L11 19V5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M15 9a4.2 4.2 0 0 1 0 6M17.8 6.5a8 8 0 0 1 0 11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              <svg class="dx-icn" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 3.5H3.5V9M15 3.5h5.5V9M9 20.5H3.5V15M15 20.5h5.5V15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+
+        </div>
       </div>
 
       <div class="demo-final reveal">
