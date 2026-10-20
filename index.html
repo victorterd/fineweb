@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fineweb — Toată firma ta, într-un singur loc</title>
+<meta name="description" content="Sisteme de gestiune făcute pe firma ta: clienți, lucrări, echipă și bani, pe o singură platformă. Fără Excel-uri, fără caiete.">
+<link rel="preload" href="assets/fonts/BricolageGrotesque-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Sari la conținut</a>
+
+<header class="site-header" id="site-header">
+  <div class="container nav-inner">
+    <a class="logo" href="#top" aria-label="Fineweb — acasă">
+      <img src="assets/img/logo.png" alt="Fineweb" width="131" height="20">
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="#pentru-cine">Pentru cine</a>
+      <a href="#demo">Exemple</a>
+      <a href="#pret">Preț</a>
+      <a href="#faq">Întrebări</a>
+    </nav>
+
+    <a class="btn btn-primary btn-sm nav-cta" href="#programeaza">Programează demo gratuit</a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Deschide meniul">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="container hero-inner">
+      <h1 class="reveal">Toată firma ta,<br>într-un singur loc.</h1>
+      <p class="hero-sub reveal">Clienți, lucrări, echipă și bani, toate pe o singură platformă.
+        Vezi oricând, de pe telefon, unde ești cu fiecare proiect.
+        Fără Excel-uri, fără caiete.</p>
+      <div class="hero-cta reveal">
+        <a class="btn btn-primary btn-lg" href="#programeaza">Programează demo gratuit</a>
+        <span class="hero-note">30 de minute, pe Google Meet. Fără obligații.</span>
+      </div>
+    </div>
+
+    <div class="container hero-shot reveal">
+      <div class="shot-frame">
+        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+        <img src="assets/img/platforma.webp" alt="Platforma Fineweb — panou de control cu lucrări, încasări și agenda zilei"
+             width="2048" height="1105" loading="eager" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEMA ============ -->
+  <section class="problema section" id="problema">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker">Problema</p>
+        <h2>Sună cunoscut?</h2>
+        <p class="section-sub">Majoritatea firmelor mici și mijlocii lucrează la fel: informația e
+          peste tot, dar nu o găsești când ai nevoie de ea.</p>
+      </div>
+
+      <div class="problema-grid">
+        <article class="p-card reveal">
+          <span class="p-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 9.3h18M9.3 9.3V20M15.6 9.3V20M3 14.6h18" stroke="currentColor" stroke-width="1.6"/></svg>
+          </span>
+          <h3>Excel-uri peste Excel-uri</h3>
+          <p>Fiecare om are tabelul lui. Nimeni nu știe care e varianta bună, iar totul se strică la prima greșeală.</p>
+        </article>
+
+        <article class="p-card reveal">
+          <span class="p-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L4 21l1.5-4.4A8.5 8.5 0 1 1 21 12Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 11h7M8.5 14.2h4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Totul pe WhatsApp și pe hârtie</h3>
+          <p>Comenzi, oferte și detalii importante se pierd prin mesaje, caiete și bilețele.</p>
+        </article>
+
+        <article class="p-card reveal">
+          <span class="p-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Trebuie să suni ca să afli</h3>
+          <p>Ca să știi unde e un proiect sau dacă a plătit un client, suni pe cineva și aștepți.</p>
+        </article>
+
+        <article class="p-card reveal">
+          <span class="p-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="10" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c.6-3.3 3-5.2 6-5.2 1.3 0 2.5.35 3.5 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m16.5 15.5 5 5M21.5 15.5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Clienți uitați</h3>
+          <p>Un client nu e sunat la timp și trece la concurență. Nimeni nu observă.</p>
+        </article>
+      </div>
+
+      <p class="problema-final reveal">Rezultatul: pierzi timp, pierzi clienți și pierzi bani, fără să-ți
+        dai seama. <strong>Există o variantă mai simplă.</strong></p>
+    </div>
+  </section>
+
+  <!-- ============ PENTRU CINE ============ -->
+  <section class="nise section" id="pentru-cine">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker">Pentru cine este?</p>
+        <h2>Făcut pentru firme care lucrează cu clienți</h2>
+        <p class="section-sub">Pentru orice firmă care are clienți, proiecte sau oameni de coordonat
+          și vrea să scape de Excel.</p>
+      </div>
+
+      <div class="nise-grid">
+        <article class="n-card reveal">
+          <span class="n-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m3 11 9-7 9 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 9.5V20h13V9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 20v-5.5h4V20" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Construcții și renovări</h3>
+          <p>Vezi în ce etapă e fiecare lucrare, ce s-a încasat și ce mai ai de primit.</p>
+        </article>
+
+        <article class="n-card reveal">
+          <span class="n-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7M18.4 18.4l-1.7-1.7M7.3 7.3 5.6 5.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Instalații și fotovoltaice</h3>
+          <p>De la ofertă la montaj, fiecare client pe statusul lui, fără să pierzi niciun lead.</p>
+        </article>
+
+        <article class="n-card reveal">
+          <span class="n-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="3.5" width="16" height="17" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 3.5v17M4 12h16" stroke="currentColor" stroke-width="1.6"/></svg>
+          </span>
+          <h3>Termopane, uși și acoperișuri</h3>
+          <p>Măsurători, comenzi, montaje și avansuri, toate urmărite într-un singur loc.</p>
+        </article>
+
+        <article class="n-card reveal">
+          <span class="n-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19.5V13M9.4 19.5V9M14.8 19.5v-8M20 19.5V5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m4.5 9 5-3.6 5 2.1 4.6-3.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Distribuitori cu agenți de vânzări</h3>
+          <p>Vezi ce face fiecare agent, ce comenzi a adus și cât mai are până la target.</p>
+        </article>
+
+        <article class="n-card reveal">
+          <span class="n-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3.5 20.5h17M5.5 20.5V5.5a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2v15M14.5 9.5h2.5a1.5 1.5 0 0 1 1.5 1.5v9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.3 7.5h1.8M8.3 11h1.8M8.3 14.5h1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Agenții imobiliare</h3>
+          <p>Proprietăți, clienți interesați și vizionări, legate între ele și la zi.</p>
+        </article>
+
+        <article class="n-card reveal">
+          <span class="n-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3 4.5 6v5c0 4.6 3.1 8 7.5 10 4.4-2 7.5-5.4 7.5-10V6L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m9 11.8 2.1 2.1 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Brokeri de asigurări și credite</h3>
+          <p>Te anunță singur când expiră o poliță, ca să nu pierzi reînnoirea.</p>
+        </article>
+
+        <article class="n-card reveal">
+          <span class="n-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 16.5 6.7 9a2 2 0 0 1 2-1.5h6.6a2 2 0 0 1 2 1.5l1.7 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="3.5" y="16.5" width="17" height="3.5" rx="1.2" stroke="currentColor" stroke-width="1.6"/><path d="M6.5 20v1.5M17.5 20v1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Service-uri auto</h3>
+          <p>Istoricul fiecărei mașini, programări și remindere pentru revizie și ITP.</p>
+        </article>
+
+        <article class="n-card reveal">
+          <span class="n-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="5" y="3.5" width="14" height="17" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M9 3.5V6M15 3.5V6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m8.8 13 2.1 2.1 4.2-4.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Verificări tehnice (ISCIR, PSI, SSM)</h3>
+          <p>Sute de clienți cu scadențe anuale, iar sistemul îți spune pe cine suni luna asta.</p>
+        </article>
+
+        <article class="n-card reveal">
+          <span class="n-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4.5" y="3.5" width="15" height="17" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 7.5h8M8 11h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 15h2.5M8 18h2.5M13.5 15h2.5M13.5 18h2.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Firme de contabilitate</h3>
+          <p>Fiecare client cu termenele lui, documentele lipsă și plățile restante.</p>
+        </article>
+
+        <article class="n-card reveal">
+          <span class="n-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 21s-4.5-5.2-4.5-10A4.5 4.5 0 0 1 8 6.5c2.6 0 4.5 2 4.5 4.5 0 4.8-4.5 10-4.5 10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="8" cy="11" r="1.6" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 3.5 17 7l3.5 1.5L17 10l-1.5 3.5L14 10l-3.5-1.5L14 7l1.5-3.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Curățenie și servicii recurente</h3>
+          <p>Contracte, programări și echipe, totul organizat pe zile și pe clienți.</p>
+        </article>
+      </div>
+
+      <div class="nise-final reveal">
+        <p><strong>Domeniul tău nu e pe listă? Nu contează.</strong> Construim platforma pe felul în
+          care lucrează firma ta.</p>
+        <a class="btn btn-primary" href="#programeaza">Programează demo gratuit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEMO ============ -->
+  <section class="demo section" id="demo">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker">Exemple</p>
+        <h2>Vezi cum arată, pe o firmă ca a ta</h2>
+        <p class="section-sub">Am construit trei exemple, cu date fictive. Alege domeniul cel mai
+          apropiat de firma ta și vezi platforma în acțiune.</p>
+      </div>
+
+      <div class="demo-grid">
+        <article class="d-card reveal">
+          <div class="d-media" data-demo="constructii">
+            <span class="d-play" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8.5 5.8v12.4a1 1 0 0 0 1.5.9l10-6.2a1 1 0 0 0 0-1.8l-10-6.2a1 1 0 0 0-1.5.9Z" fill="currentColor"/></svg>
+            </span>
+            <span class="d-soon">Clip demo în curând</span>
+          </div>
+          <div class="d-body">
+            <h3>Firmă de construcții și instalații</h3>
+            <p class="d-for">Pentru construcții, renovări, instalații, fotovoltaice, termopane.</p>
+            <ul class="checklist">
+              <li>Fiecare lucrare pe etape, de la ofertă la predare</li>
+              <li>Ce echipă lucrează unde</li>
+              <li>Ce s-a încasat și ce mai ai de primit</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="d-card reveal">
+          <div class="d-media" data-demo="vanzari">
+            <span class="d-play" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8.5 5.8v12.4a1 1 0 0 0 1.5.9l10-6.2a1 1 0 0 0 0-1.8l-10-6.2a1 1 0 0 0-1.5.9Z" fill="currentColor"/></svg>
+            </span>
+            <span class="d-soon">Clip demo în curând</span>
+          </div>
+          <div class="d-body">
+            <h3>Firmă cu agenți de vânzări</h3>
+            <p class="d-for">Pentru distribuitori, agenții imobiliare, brokeri, echipe de vânzări.</p>
+            <ul class="checklist">
+              <li>Clienții fiecărui agent, pe statusuri</li>
+              <li>Reminder automat pentru follow-up</li>
+              <li>Vânzări față de target și comisioane calculate singure</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="d-card reveal">
+          <div class="d-media" data-demo="servicii">
+            <span class="d-play" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8.5 5.8v12.4a1 1 0 0 0 1.5.9l10-6.2a1 1 0 0 0 0-1.8l-10-6.2a1 1 0 0 0-1.5.9Z" fill="currentColor"/></svg>
+            </span>
+            <span class="d-soon">Clip demo în curând</span>
+          </div>
+          <div class="d-body">
+            <h3>Firmă cu mulți clienți și programări</h3>
+            <p class="d-for">Pentru service-uri auto, verificări tehnice, contabilitate, curățenie.</p>
+            <ul class="checklist">
+              <li>Fișa fiecărui client, cu tot istoricul</li>
+              <li>Te anunță singur pe cine trebuie să suni</li>
+              <li>Programări și plăți restante dintr-o privire</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="demo-final reveal">
+        <p>Asta e doar un exemplu. <strong>Platforma ta o construim pe felul în care lucrezi tu.</strong></p>
+        <a class="btn btn-primary" href="#programeaza">Programează demo gratuit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALE ============ -->
+  <section class="testimoniale section" id="testimoniale">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker">Testimoniale</p>
+        <h2>Ce spun firmele care lucrează cu noi</h2>
+      </div>
+
+      <div class="t-slider reveal" id="t-slider">
+        <div class="t-track" id="t-track">
+          <figure class="t-card">
+            <div class="t-stars" aria-label="5 din 5 stele">★★★★★</div>
+            <blockquote>„Aici va apărea părerea unui client — despre cum arăta firma lui înainte
+              și ce s-a schimbat după platformă."</blockquote>
+            <figcaption>
+              <span class="t-avatar" aria-hidden="true">A</span>
+              <div><strong>Nume Prenume</strong><span>Firma SRL · Domeniu</span></div>
+            </figcaption>
+          </figure>
+
+          <figure class="t-card">
+            <div class="t-stars" aria-label="5 din 5 stele">★★★★★</div>
+            <blockquote>„Al doilea testimonial — câteva propoziții despre economia de timp
+              și despre cum echipa folosește platforma zi de zi."</blockquote>
+            <figcaption>
+              <span class="t-avatar" aria-hidden="true">B</span>
+              <div><strong>Nume Prenume</strong><span>Firma SRL · Domeniu</span></div>
+            </figcaption>
+          </figure>
+
+          <figure class="t-card">
+            <div class="t-stars" aria-label="5 din 5 stele">★★★★★</div>
+            <blockquote>„Al treilea testimonial — despre cifre: clienți care nu se mai pierd,
+              încasări urmărite la zi, mai puține telefoane."</blockquote>
+            <figcaption>
+              <span class="t-avatar" aria-hidden="true">C</span>
+              <div><strong>Nume Prenume</strong><span>Firma SRL · Domeniu</span></div>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="t-nav">
+          <button type="button" class="t-btn" id="t-prev" aria-label="Testimonialul anterior">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m14.5 6-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="t-dots" id="t-dots" role="tablist" aria-label="Alege testimonialul"></div>
+          <button type="button" class="t-btn" id="t-next" aria-label="Testimonialul următor">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m9.5 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRET ============ -->
+  <section class="pret section" id="pret">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker">Cât costă?</p>
+        <h2>Un preț corect, pe firma ta</h2>
+        <p class="section-sub">Fiecare platformă e făcută pe firma ta, așa că prețul depinde de ce ai
+          nevoie. Îl afli exact după demo.</p>
+      </div>
+
+      <div class="pret-card reveal">
+        <div class="pret-left">
+          <p class="pret-din">de la</p>
+          <p class="pret-suma">999&nbsp;€</p>
+          <p class="pret-tip">plată unică pentru platformă</p>
+          <a class="btn btn-primary btn-lg" href="#programeaza">Programează demo gratuit</a>
+        </div>
+        <div class="pret-right">
+          <p class="pret-ce">Ce primești:</p>
+          <ul class="checklist">
+            <li>Platformă făcută pe procesele firmei tale</li>
+            <li>Acces de pe calculator și telefon</li>
+            <li>Conturi pentru echipă, fiecare vede doar ce trebuie</li>
+            <li>Mutăm datele tale din Excel în platformă</li>
+            <li>Design în culorile firmei</li>
+            <li>Suport după lansare</li>
+          </ul>
+        </div>
+      </div>
+      <p class="pret-nota reveal">Prețurile nu includ TVA. Hosting-ul, backup-ul și mentenanța se
+        plătesc printr-un abonament lunar, de la 49&nbsp;€.</p>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq section" id="faq">
+    <div class="container faq-wrap">
+      <div class="section-head reveal">
+        <p class="kicker">Întrebări frecvente</p>
+        <h2>Probabil te întrebi…</h2>
+      </div>
+
+      <div class="faq-list reveal">
+        <details>
+          <summary>Trebuie să instalez ceva?<span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>Nu. Platforma merge din browser, pe calculator, tabletă sau telefon. Intri cu adresa de
+            email și parola, ca pe orice site.</p>
+        </details>
+        <details>
+          <summary>Cât durează până o pot folosi?<span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>Între 2 și 7 săptămâni, în funcție de cât de complexă e. În acest timp îți arătăm
+            progresul în fiecare săptămână.</p>
+        </details>
+        <details>
+          <summary>Datele mele sunt în siguranță?<span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>Da. Datele sunt găzduite pe servere din Uniunea Europeană, cu backup zilnic. Fiecare om
+            din echipă vede doar ce are voie să vadă.</p>
+        </details>
+        <details>
+          <summary>Ale cui sunt datele?<span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>Ale tale. Oricând ceri, primești un export complet al lor.</p>
+        </details>
+        <details>
+          <summary>Ce fac cu datele pe care le am acum în Excel?<span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>Le mutăm noi în platformă, ca să nu o iei de la zero.</p>
+        </details>
+        <details>
+          <summary>Ce se întâmplă dacă vreau ceva modificat mai târziu?<span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>Abonamentul lunar include în fiecare lună câteva ore de mici modificări. Pentru lucruri
+            mai mari îți facem o estimare separată, înainte să începem.</p>
+        </details>
+        <details>
+          <summary>De ce nu folosesc un program gata făcut?<span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>Programele gata făcute te obligă să lucrezi cum vor ele. Platforma noastră e construită
+            pe felul în care lucrezi deja tu, așa că echipa o învață repede.</p>
+        </details>
+        <details>
+          <summary>Echipa mea nu se pricepe la calculatoare. O să se descurce?<span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>Da. Facem platforma cât mai simplă, cu doar ce folosiți voi, și vă arătăm cum merge la
+            lansare.</p>
+        </details>
+        <details>
+          <summary>Cum se face plata?<span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>50% la început și 50% la lansare. Abonamentul lunar începe din luna în care platforma
+            intră în folosință.</p>
+        </details>
+        <details>
+          <summary>Ce se întâmplă în demo?<span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>O discuție de 30 de minute pe Google Meet. Ne spui cum lucrezi acum, iar noi îți arătăm
+            cum ar arăta platforma pentru firma ta. Este gratuit și nu te obligă la nimic.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROGRAMEAZA ============ -->
+  <section class="programeaza section" id="programeaza">
+    <div class="container prog-card reveal">
+      <div class="prog-left">
+        <h2>Programează un demo gratuit</h2>
+        <p>Ne spui cum lucrezi acum, iar noi îți arătăm cum ar arăta platforma pentru firma ta.</p>
+        <ul class="checklist">
+          <li>30 de minute, pe Google Meet</li>
+          <li>Vezi platforma pe un exemplu din domeniul tău</li>
+          <li>Gratuit și fără nicio obligație</li>
+        </ul>
+        <a class="prog-tel" href="tel:+40728541017">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          Sau sună-ne direct: <strong>0728 541 017</strong>
+        </a>
+      </div>
+
+      <form class="prog-form" id="demo-form" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-name">Numele tău</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Ion Popescu" required>
+          </div>
+          <div class="form-field">
+            <label for="f-phone">Telefon</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="07xx xxx xxx" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="f-firm">Firma și domeniul</label>
+          <input id="f-firm" name="firm" type="text" autocomplete="organization" placeholder="Ex: Construct SRL — renovări">
+        </div>
+        <div class="form-field">
+          <label for="f-msg">Cu ce te putem ajuta? <em>(opțional)</em></label>
+          <textarea id="f-msg" name="message" rows="3" placeholder="Pe scurt: cum lucrați acum și ce v-ar ajuta…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="form-submit">Programează demo gratuit</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+        <p class="form-note">Te sunăm noi în aceeași zi lucrătoare, ca să stabilim ora.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a class="logo" href="#top" aria-label="Fineweb — acasă">
+        <img src="assets/img/logo.png" alt="Fineweb" width="118" height="18">
+      </a>
+      <p>Sisteme de gestiune făcute pe firma ta.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+40728541017">0728 541 017</a>
+    </div>
+    <nav class="footer-col" aria-label="Legal">
+      <h4>Legal</h4>
+      <a href="termeni-si-conditii.html">Termeni și Condiții</a>
+      <a href="politica-de-confidentialitate.html">Politica de Confidențialitate</a>
+      <a href="politica-cookies.html">Politica de Cookies</a>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 Fineweb. Toate drepturile rezervate.</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
