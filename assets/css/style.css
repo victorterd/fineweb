@@ -259,6 +259,7 @@ h1, h2, h3 {
 }
 .hero-inner{
   position: relative;
+  z-index: 2;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -294,25 +295,37 @@ h1, h2, h3 {
 .hero-rays{
   position: absolute;
   left: 50%;
-  top: -130px;
+  top: -150px;
   transform: translateX(-50%);
   width: min(1560px, 130vw);
-  height: calc(100% + 260px);
+  height: calc(70% + 150px);
   pointer-events: none;
-  background:
-    repeating-linear-gradient(90deg,
-      rgba(11, 99, 255, 0)    0px,
-      rgba(59, 130, 255, .55) 38px,
-      rgba(11, 99, 255, 0)    76px,
-      rgba(11, 99, 255, .75)  118px,
-      rgba(11, 99, 255, 0)    160px,
-      rgba(59, 130, 255, .40) 196px,
-      rgba(11, 99, 255, 0)    232px,
-      rgba(11, 99, 255, .62)  272px,
-      rgba(11, 99, 255, 0)    312px),
-    linear-gradient(to top, rgba(11, 99, 255, .55), rgba(11, 99, 255, 0) 78%);
-  -webkit-mask-image: radial-gradient(80% 128% at 50% 98%, #000 50%, transparent 94%);
-  mask-image: radial-gradient(80% 128% at 50% 98%, #000 50%, transparent 94%);
+  /* curcubeu soft, in culorile sectiunii "Suna cunoscut?" */
+  background: linear-gradient(90deg,
+    rgba(11, 99, 255, 0)     0%,
+    rgba(11, 99, 255, .52)   10%,
+    rgba(109, 74, 255, .50)  28%,
+    rgba(221, 70, 50, .42)   46%,
+    rgba(217, 119, 6, .46)   64%,
+    rgba(14, 138, 77, .46)   82%,
+    rgba(11, 99, 255, 0)     100%);
+  /* gradientul curge de sus in jos */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 48%, transparent 96%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 48%, transparent 96%);
+}
+/* fascicule verticale decupate cu culoarea fundalului */
+.hero-rays::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg,
+    rgba(247, 246, 243, 0)    0px,
+    rgba(247, 246, 243, .9)   34px,
+    rgba(247, 246, 243, 0)    64px,
+    rgba(247, 246, 243, .55) 102px,
+    rgba(247, 246, 243, 0)   138px,
+    rgba(247, 246, 243, .8)  172px,
+    rgba(247, 246, 243, 0)   212px);
 }
 html.js .hero-rays{ opacity: 0; }
 html.js body.loaded .hero-rays{
