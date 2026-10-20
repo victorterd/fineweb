@@ -266,7 +266,7 @@ h1, h2, h3 {
   margin-bottom: 24px;
 }
 .hero-sub{
-  max-width: 600px;
+  max-width: 840px;
   color: var(--muted);
   font-size: clamp(1.05rem, 1.5vw, 1.18rem);
   margin-bottom: 36px;
@@ -886,7 +886,11 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
   .footer-inner{ grid-template-columns: 1fr 1fr; }
 }
 
+.nowrap{ white-space: nowrap; }
+
 @media (max-width: 760px){
+  .only-desktop{ display: none; }
+  .nowrap{ white-space: normal; }
   .section{ padding: 72px 0; }
   .hero{ padding-top: 128px; }
   .hero-shot{ margin-top: 48px; }
