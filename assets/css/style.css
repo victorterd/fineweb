@@ -385,40 +385,100 @@ h1, h2, h3 {
 .problema-final strong{ color: var(--ink); font-weight: 600; }
 
 /* ============ Nise ============ */
-.nise-grid{
+.nise-wrap{
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 48px;
+  align-items: start;
+  max-width: 1060px;
+  margin-inline: auto;
 }
-.n-card{
+.nise-list{
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+.n-row{
+  display: grid;
+  grid-template-columns: 44px 1fr 28px;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+  padding: 17px 10px;
+  border-bottom: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+.n-row:hover{ background: rgba(11, 99, 255, 0.04); }
+.n-num{
+  font-family: var(--font-display);
+  font-weight: 550;
+  font-size: 0.92rem;
+  color: var(--muted-2);
+  transition: color .2s ease;
+}
+.n-name{
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  color: var(--muted-2);
+  transition: color .2s ease, transform .25s ease;
+}
+.n-arrow{
+  font-size: 1.1rem;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity .2s ease, transform .25s ease;
+}
+.n-row:hover .n-name{ color: var(--ink); }
+.n-row.is-active .n-name{
+  color: var(--ink);
+  transform: translateX(4px);
+}
+.n-row.is-active .n-num{ color: var(--accent); }
+.n-row.is-active .n-arrow{ opacity: 1; transform: translateX(0); }
+.n-desc{ display: none; }
+
+.nise-panel{
+  position: sticky;
+  top: 104px;
+}
+.np-inner{
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 20px 18px;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-}
-.n-card:hover{
-  transform: translateY(-3px);
-  border-color: var(--border-strong);
+  border-radius: 22px;
+  padding: 36px 34px;
   box-shadow: var(--shadow-soft);
 }
-.n-icon{
+html.js .np-inner.swap{ animation: np-swap .35s cubic-bezier(.22, 1, .3, 1); }
+@keyframes np-swap{
+  from{ opacity: 0; transform: translateY(10px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+.np-icon{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px; height: 38px;
-  border-radius: 10px;
+  width: 58px; height: 58px;
+  border-radius: 16px;
   background: var(--accent-soft);
   color: var(--accent);
-  margin-bottom: 14px;
+  margin-bottom: 20px;
 }
-.n-card h3{
-  font-size: 0.98rem;
-  line-height: 1.25;
-  margin-bottom: 7px;
-  letter-spacing: -0.005em;
+.np-icon svg{ width: 28px; height: 28px; }
+.np-inner h3{
+  font-size: 1.45rem;
+  margin-bottom: 10px;
 }
-.n-card p{ color: var(--muted); font-size: 0.86rem; line-height: 1.55; }
+.np-inner p{
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
 
 .nise-final{
   margin-top: 44px;
@@ -877,7 +937,6 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
 
 /* ============ Responsive ============ */
 @media (max-width: 1060px){
-  .nise-grid{ grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 900px){
@@ -911,6 +970,35 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
 
 .nowrap{ white-space: nowrap; }
 
+@media (max-width: 900px){
+  .nise-wrap{ grid-template-columns: 1fr; gap: 0; }
+  .nise-panel{ display: none; }
+  .n-row{ grid-template-columns: 36px 1fr 22px; padding: 15px 6px; }
+  .n-row .n-arrow, .n-row.is-active .n-arrow{
+    transform: rotate(90deg) translateX(0);
+    opacity: .5;
+    transition: transform .25s ease, opacity .2s ease;
+  }
+  .n-row.open .n-arrow, .n-row.is-active.open .n-arrow{ transform: rotate(-90deg); opacity: 1; }
+  .n-row.is-active .n-num{ color: var(--muted-2); }
+  .n-row.is-active .n-name{ color: var(--muted-2); transform: none; }
+  .n-row.open .n-num, .n-row.is-active.open .n-num{ color: var(--accent); }
+  .n-row.open .n-name{ color: var(--ink); }
+  .n-row.open{ background: rgba(11, 99, 255, 0.04); }
+  .n-row.open .n-name, .n-row:hover .n-name{ color: var(--ink); }
+  .n-row.open .n-desc{
+    display: block;
+    grid-column: 2 / -1;
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.93rem;
+    line-height: 1.6;
+    padding-top: 6px;
+    animation: np-swap .3s ease;
+  }
+}
+
 @media (max-width: 760px){
   .only-desktop{ display: none; }
   .nowrap{ white-space: normal; }
@@ -926,14 +1014,12 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
   }
   .site-header.nav-open .main-nav{ padding-bottom: 76px; }
 
-  .nise-grid{ grid-template-columns: 1fr; }
   .p-row{
     grid-template-columns: 1fr;
     gap: 10px;
     padding: 26px 4px;
   }
   .p-num{ font-size: 0.9rem; }
-  .n-card p{ font-size: 0.9rem; }
   .form-row{ grid-template-columns: 1fr; }
   .t-card{ padding: 32px 24px; }
   .pret-left, .pret-right{ padding: 34px 26px; }
@@ -949,7 +1035,7 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   html.js .reveal{ opacity: 1; transform: none; transition: none; }
-  .btn, .p-row, .n-card, .d-card, .t-btn{ transition: none; }
+  .btn, .p-row, .n-row, .d-card, .t-btn{ transition: none; }
 }
 
 /* ============ Pagini legale ============ */
@@ -1122,28 +1208,11 @@ html.js body.loaded .shot-frame::after{
 
 /* ---- Reveal in cascada pentru griduri ---- */
 @media (min-width: 761px){
-  html.js .nise-grid .reveal:nth-child(2),
   html.js .demo-grid .reveal:nth-child(2){ transition-delay: .08s; }
-  html.js .nise-grid .reveal:nth-child(3),
   html.js .demo-grid .reveal:nth-child(3){ transition-delay: .16s; }
-  html.js .nise-grid .reveal:nth-child(4){ transition-delay: .24s; }
-  html.js .nise-grid .reveal:nth-child(5){ transition-delay: .32s; }
-  html.js .nise-grid .reveal:nth-child(6){ transition-delay: .06s; }
-  html.js .nise-grid .reveal:nth-child(7){ transition-delay: .14s; }
-  html.js .nise-grid .reveal:nth-child(8){ transition-delay: .22s; }
-  html.js .nise-grid .reveal:nth-child(9){ transition-delay: .30s; }
-  html.js .nise-grid .reveal:nth-child(10){ transition-delay: .38s; }
 }
 
 /* ---- Micro-interactiuni pe carduri ---- */
-.n-icon{
-  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), background .2s ease, color .2s ease;
-}
-.n-card:hover .n-icon{
-  transform: scale(1.1) rotate(4deg);
-  background: var(--accent);
-  color: #fff;
-}
 .d-card{ transform-style: preserve-3d; }
 .d-play{ transition: transform .3s cubic-bezier(.34, 1.56, .64, 1); }
 .d-card:hover .d-play{ transform: scale(1.12); }

@@ -121,6 +121,59 @@
     });
   }
 
+  // Sectiunea de nise: lista interactiva cu panou (desktop) / acordeon (mobil)
+  const niseList = document.getElementById('nise-list');
+  if (niseList) {
+    const rows = [...niseList.querySelectorAll('.n-row')];
+    const npInner = document.getElementById('np-inner');
+    const npIcon = document.getElementById('np-icon');
+    const npName = document.getElementById('np-name');
+    const npDesc = document.getElementById('np-desc');
+    const isMobileList = () => window.matchMedia('(max-width: 900px)').matches;
+
+    const setPanel = (row, animate = true) => {
+      npIcon.innerHTML = row.querySelector('.n-ico').innerHTML;
+      npName.textContent = row.querySelector('.n-name').textContent;
+      npDesc.textContent = row.querySelector('.n-desc').textContent;
+      if (animate) {
+        npInner.classList.remove('swap');
+        void npInner.offsetWidth; // restart animatie
+        npInner.classList.add('swap');
+      }
+    };
+
+    const activate = (row, animate = true) => {
+      rows.forEach(r => {
+        r.classList.toggle('is-active', r === row);
+        r.setAttribute('aria-expanded', String(r === row));
+      });
+      setPanel(row, animate);
+    };
+
+    rows.forEach(row => {
+      row.addEventListener('mouseenter', () => {
+        if (!isMobileList()) activate(row);
+      });
+      row.addEventListener('focus', () => {
+        if (!isMobileList()) activate(row);
+      });
+      row.addEventListener('click', () => {
+        if (isMobileList()) {
+          const wasOpen = row.classList.contains('open');
+          rows.forEach(r => { r.classList.remove('open'); r.setAttribute('aria-expanded', 'false'); });
+          if (!wasOpen) {
+            row.classList.add('open');
+            row.setAttribute('aria-expanded', 'true');
+          }
+        } else {
+          activate(row);
+        }
+      });
+    });
+
+    activate(rows[0], false);
+  }
+
   // Pretul creste pana la 999 cand intra in ecran
   const suma = document.getElementById('pret-suma');
   if (suma && 'IntersectionObserver' in window && !reducedMotion) {
