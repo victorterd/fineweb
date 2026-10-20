@@ -426,7 +426,7 @@ h1, h2, h3 {
   letter-spacing: -0.02em;
   line-height: 1.08;
   /* umplere cu culoare, de la stanga la dreapta, la hover */
-  background-image: linear-gradient(to right, var(--pc) 50%, #aaa8a0 50%);
+  background-image: linear-gradient(to right, var(--pc) 50%, var(--ink) 50%);
   background-size: 200% 100%;
   background-position: 100% 0;
   -webkit-background-clip: text;
