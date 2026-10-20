@@ -207,7 +207,10 @@
     if (staticFeats) {
       // mobil: fiecare slide se muta sub titlul lui si ruleaza animatiile la vedere
       items.forEach((item, i) => {
-        if (slides[i]) item.after(slides[i]);
+        if (slides[i]) {
+          item.after(slides[i]);
+          slides[i].setAttribute('aria-hidden', 'false');
+        }
       });
       if ('IntersectionObserver' in window) {
         const io = new IntersectionObserver((entries) => {

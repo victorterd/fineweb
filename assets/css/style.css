@@ -1336,28 +1336,34 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
 
 @media (max-width: 900px){
   .fs-pin{ display: block; }
-  .fs-progress, .fs-glow{ display: none; }
+  .fs-left{ display: block; }
+  .fs-progress{ display: none; }
+  .fs-right{ display: none; }
   .fs-items{ display: block; }
   .fs-item{
     opacity: 1;
-    padding: 20px 4px 8px;
+    padding: 22px 4px 10px;
     grid-template-columns: 34px 1fr;
     cursor: default;
   }
   .fs-item p{ display: block !important; }
-  .fs-screen{
-    position: static;
-    min-height: 0;
-    padding: 18px;
-    margin: 6px 0 18px;
-  }
-  .fs-chrome{ display: none; }
+  /* pe mobil, fiecare preview devine propriul card, sub titlul lui */
   .fs-slide{
     position: static;
     opacity: 1;
     transform: none;
     pointer-events: auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--fc, var(--accent));
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: var(--shadow-soft);
+    margin: 6px 0 10px;
   }
+  .fs-slide[data-step="0"]{ --fc: #0b63ff; }
+  .fs-slide[data-step="1"]{ --fc: #0e8a4d; }
+  .fs-slide[data-step="2"]{ --fc: #6d4aff; }
   .nise-card{ display: none; }
   .nb-row{ grid-template-columns: 40px 1fr 26px; padding: 16px 6px; gap: 12px; }
   .nb-name{
