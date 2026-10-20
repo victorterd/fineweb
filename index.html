@@ -40,18 +40,21 @@
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
     <div class="container hero-inner">
-      <h1 class="reveal">Toată firma ta,<br>într-un singur loc.</h1>
-      <p class="hero-sub reveal">Clienți, lucrări, echipă și bani, toate pe o singură platformă.
+      <h1 class="hero-title"><span class="line"><span>Toată firma ta,</span></span><span class="line"><span>într-un singur loc.</span></span></h1>
+      <p class="hero-sub hero-in">Clienți, lucrări, echipă și bani, toate pe o singură platformă.
         Vezi oricând, de pe telefon, unde ești cu fiecare proiect.
         Fără Excel-uri, fără caiete.</p>
-      <div class="hero-cta reveal">
+      <div class="hero-cta hero-in">
         <a class="btn btn-primary btn-lg" href="#programeaza">Programează demo gratuit</a>
         <span class="hero-note">30 de minute, pe Google Meet. Fără obligații.</span>
       </div>
     </div>
 
-    <div class="container hero-shot reveal">
-      <div class="shot-frame">
+    <div class="container hero-shot">
+      <span class="chip chip-1" aria-hidden="true"><i class="chip-dot"></i>Încasări la zi</span>
+      <span class="chip chip-2" aria-hidden="true"><i class="chip-dot"></i>Vezi tot de pe telefon</span>
+      <span class="chip chip-3" aria-hidden="true"><i class="chip-dot"></i>Fără Excel-uri</span>
+      <div class="shot-frame" id="shot-frame">
         <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i></div>
         <img src="assets/img/platforma.webp" alt="Platforma Fineweb — panou de control cu lucrări, încasări și agenda zilei"
              width="2048" height="1105" loading="eager" fetchpriority="high">
@@ -348,7 +351,7 @@
       <div class="pret-card reveal">
         <div class="pret-left">
           <p class="pret-din">de la</p>
-          <p class="pret-suma">999&nbsp;€</p>
+          <p class="pret-suma" id="pret-suma" data-target="999">999&nbsp;€</p>
           <p class="pret-tip">plată unică pentru platformă</p>
           <a class="btn btn-primary btn-lg" href="#programeaza">Programează demo gratuit</a>
         </div>

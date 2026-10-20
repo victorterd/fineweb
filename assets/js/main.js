@@ -1,6 +1,13 @@
 (() => {
   document.documentElement.classList.add('js');
 
+  // declanseaza animatiile de intrare cand fonturile sunt gata (max 900ms)
+  const markLoaded = () => document.body.classList.add('loaded');
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(markLoaded);
+  }
+  setTimeout(markLoaded, 900);
+
   // Header: fundal la scroll
   const header = document.getElementById('site-header');
   const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 10);
@@ -37,13 +44,102 @@
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
 
-  // FAQ: inchide celelalte cand deschizi unul
+  // FAQ: acordeon animat, inchide celelalte cand deschizi unul
   const faqItems = document.querySelectorAll('.faq-list details');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   faqItems.forEach(d => {
-    d.addEventListener('toggle', () => {
-      if (d.open) faqItems.forEach(o => { if (o !== d) o.open = false; });
+    const content = d.querySelector('p');
+    const summary = d.querySelector('summary');
+    summary.addEventListener('click', (e) => {
+      if (reducedMotion) return; // comportament nativ
+      e.preventDefault();
+      if (d.open) {
+        const anim = content.animate(
+          [{ height: content.scrollHeight + 'px', opacity: 1 }, { height: '0px', opacity: 0 }],
+          { duration: 240, easing: 'ease' });
+        anim.onfinish = () => { d.open = false; };
+      } else {
+        faqItems.forEach(o => {
+          if (o !== d && o.open) {
+            const c = o.querySelector('p');
+            const a = c.animate(
+              [{ height: c.scrollHeight + 'px', opacity: 1 }, { height: '0px', opacity: 0 }],
+              { duration: 200, easing: 'ease' });
+            a.onfinish = () => { o.open = false; };
+          }
+        });
+        d.open = true;
+        content.animate(
+          [{ height: '0px', opacity: 0 }, { height: content.scrollHeight + 'px', opacity: 1 }],
+          { duration: 280, easing: 'cubic-bezier(.22,1,.3,1)' });
+      }
     });
   });
+
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
+  const bigScreen = window.matchMedia('(min-width: 761px)').matches;
+
+  // Screenshot-ul din hero se indreapta pe masura ce derulezi
+  const shot = document.getElementById('shot-frame');
+  if (shot && bigScreen && !reducedMotion) {
+    let ticking = false;
+    const updateShot = () => {
+      ticking = false;
+      const r = shot.getBoundingClientRect();
+      // progres: 0 cand rama e jos in viewport, 1 cand a urcat spre centru
+      const p = Math.min(1, Math.max(0, 1 - (r.top - window.innerHeight * 0.18) / (window.innerHeight * 0.6)));
+      shot.style.setProperty('--shot-tilt', (9 * (1 - p)).toFixed(2));
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(updateShot); }
+    }, { passive: true });
+    updateShot();
+  }
+
+  // Butoane magnetice
+  if (finePointer && !reducedMotion) {
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+        const y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+        btn.style.transform = `translate(${(x * 4).toFixed(1)}px, ${(y * 3 - 2).toFixed(1)}px)`;
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+
+    // Tilt 3D discret pe cardurile demo
+    document.querySelectorAll('.d-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform =
+          `perspective(900px) rotateY(${(x * 4).toFixed(2)}deg) rotateX(${(-y * 4).toFixed(2)}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+  }
+
+  // Pretul creste pana la 999 cand intra in ecran
+  const suma = document.getElementById('pret-suma');
+  if (suma && 'IntersectionObserver' in window && !reducedMotion) {
+    const target = parseInt(suma.dataset.target, 10) || 999;
+    const io = new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      const t0 = performance.now();
+      const dur = 900;
+      const tick = (t) => {
+        const p = Math.min(1, (t - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        suma.textContent = `${Math.round(target * eased)}\u00A0\u20AC`;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, { threshold: 0.6 });
+    io.observe(suma);
+  }
 
   // Testimoniale: slider cu sageti si puncte
   const track = document.getElementById('t-track');

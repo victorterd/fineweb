@@ -40,6 +40,9 @@
   --muted-2: #9b9a93;
   --border: #e8e6e0;
   --border-strong: #d9d7cf;
+  --accent: #0b63ff;
+  --accent-bright: #3b82ff;
+  --accent-soft: #e9f0ff;
   --green: #17a04b;
   --green-soft: #e9f6ee;
   --radius-lg: 24px;
@@ -111,14 +114,14 @@ h1, h2, h3 {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--green);
+  color: var(--accent);
   margin-bottom: 16px;
 }
 .kicker::before{
   content: "";
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: var(--green);
+  background: var(--accent);
 }
 .section-head{
   max-width: 660px;
@@ -136,23 +139,37 @@ h1, h2, h3 {
 
 /* ============ Buttons ============ */
 .btn{
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
   padding: 14px 26px;
   border-radius: 999px;
-  font-weight: 550;
+  font-weight: 560;
   font-size: 15px;
-  background: var(--ink);
+  background: linear-gradient(180deg, var(--accent-bright), var(--accent));
   color: #fff;
-  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 10px 26px -10px rgba(11, 99, 255, 0.55);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
   white-space: nowrap;
+  will-change: transform;
+}
+.btn::after{
+  content: "→";
+  font-family: var(--font-body);
+  transition: transform .2s ease;
 }
 .btn:hover{
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px -10px rgba(20, 20, 19, 0.45);
+  filter: brightness(1.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 16px 36px -10px rgba(11, 99, 255, 0.7);
 }
+.btn:hover::after{ transform: translateX(3px); }
 .btn-sm{ padding: 10px 20px; font-size: 14px; }
 .btn-lg{ padding: 16px 32px; font-size: 16px; }
 .btn-block{ width: 100%; }
@@ -186,10 +203,26 @@ h1, h2, h3 {
   font-weight: 500;
 }
 .main-nav a{
+  position: relative;
   color: var(--muted);
   transition: color .15s ease;
+  padding-bottom: 3px;
+}
+.main-nav a::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1.5px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .25s ease;
 }
 .main-nav a:hover{ color: var(--ink); }
+.main-nav a:hover::after{
+  transform: scaleX(1);
+  transform-origin: left;
+}
 .nav-toggle{
   display: none;
   flex-direction: column;
@@ -217,7 +250,7 @@ h1, h2, h3 {
   left: 50%; top: 46%;
   width: min(1100px, 120vw); height: 700px;
   transform: translateX(-50%);
-  background: radial-gradient(50% 50% at 50% 50%, rgba(23, 160, 75, 0.09), transparent 70%);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(11, 99, 255, 0.08), transparent 70%);
   pointer-events: none;
 }
 .hero-inner{
@@ -351,8 +384,8 @@ h1, h2, h3 {
   justify-content: center;
   width: 38px; height: 38px;
   border-radius: 10px;
-  background: var(--green-soft);
-  color: var(--green);
+  background: var(--accent-soft);
+  color: var(--accent);
   margin-bottom: 14px;
 }
 .n-card h3{
@@ -392,7 +425,7 @@ h1, h2, h3 {
   left: 0; top: 2px;
   width: 19px; height: 19px;
   border-radius: 50%;
-  background: var(--green-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='m6.5 12.5 3.5 3.5 7.5-8' stroke='%2317a04b' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 13px no-repeat;
+  background: var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='m6.5 12.5 3.5 3.5 7.5-8' stroke='%230b63ff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 13px no-repeat;
 }
 
 /* ============ Demo ============ */
@@ -423,7 +456,7 @@ h1, h2, h3 {
   position: relative;
   aspect-ratio: 16 / 10;
   background:
-    radial-gradient(90% 120% at 50% 0%, rgba(23, 160, 75, 0.14), transparent 55%),
+    radial-gradient(90% 120% at 50% 0%, rgba(59, 130, 255, 0.22), transparent 55%),
     linear-gradient(180deg, #1d1d1b, #141413);
   display: flex;
   flex-direction: column;
@@ -520,8 +553,8 @@ h1, h2, h3 {
   justify-content: center;
   width: 42px; height: 42px;
   border-radius: 50%;
-  background: var(--green-soft);
-  color: var(--green);
+  background: var(--accent-soft);
+  color: var(--accent);
   font-weight: 650;
   font-size: 15px;
 }
@@ -602,13 +635,6 @@ h1, h2, h3 {
   font-size: 0.95rem;
   margin: 10px 0 30px;
 }
-.pret-left .btn{
-  background: #fff;
-  color: var(--ink);
-}
-.pret-left .btn:hover{
-  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.55);
-}
 .pret-right{
   background: var(--surface);
   padding: 44px 40px;
@@ -653,7 +679,7 @@ h1, h2, h3 {
   letter-spacing: -0.01em;
   transition: color .15s ease;
 }
-.faq-list summary:hover{ color: var(--green); }
+.faq-list summary:hover{ color: var(--accent); }
 .faq-plus{
   position: relative;
   flex-shrink: 0;
@@ -697,7 +723,7 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
 }
 .prog-left .checklist li{ color: rgba(255, 255, 255, 0.85); }
 .prog-left .checklist li::before{
-  background-color: rgba(23, 160, 75, 0.22);
+  background-color: rgba(59, 130, 255, 0.22);
 }
 .prog-tel{
   display: inline-flex;
@@ -752,8 +778,8 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
 .form-field input:focus,
 .form-field textarea:focus{
   outline: none;
-  border-color: var(--ink);
-  box-shadow: 0 0 0 3px rgba(20, 20, 19, 0.08);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(11, 99, 255, 0.14);
 }
 .form-status{
   text-align: center;
@@ -921,7 +947,7 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
 }
 .legal-content strong{ color: var(--ink); font-weight: 600; }
 .legal-content a{
-  color: var(--green);
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
   word-break: break-word;
@@ -941,7 +967,7 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
   left: 7px; top: 0.72em;
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--green);
+  background: var(--accent);
 }
 .legal-content ol{ counter-reset: legal-ol; }
 .legal-content ol > li{ counter-increment: legal-ol; }
@@ -985,10 +1011,182 @@ details[open] .faq-plus::after{ transform: translate(-50%, -50%) rotate(0deg); }
 .legal-content code{
   font-family: ui-monospace, 'SF Mono', Menlo, monospace;
   font-size: 0.85em;
-  color: var(--green);
-  background: var(--green-soft);
+  color: var(--accent);
+  background: var(--accent-soft);
   padding: 1px 7px;
   border-radius: 6px;
   white-space: nowrap;
 }
 .legal-content hr{ border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* ======================================================
+   Microanimatii & interactiuni (awwwards layer)
+   ====================================================== */
+
+/* ---- Intrare hero (doar cu JS; fallback vizibil fara JS) ---- */
+html.js .hero-title .line{ display: block; overflow: hidden; }
+html.js .hero-title .line > span{
+  display: block;
+  transform: translateY(112%);
+}
+html.js body.loaded .hero-title .line > span{
+  animation: line-up .9s cubic-bezier(.22, 1, .3, 1) forwards;
+}
+html.js body.loaded .hero-title .line:nth-child(2) > span{ animation-delay: .09s; }
+@keyframes line-up{ to{ transform: translateY(0); } }
+
+html.js .hero-in{
+  opacity: 0;
+  transform: translateY(16px);
+}
+html.js body.loaded .hero-in{
+  animation: fade-up .8s cubic-bezier(.22, 1, .3, 1) forwards;
+  animation-delay: .35s;
+}
+html.js body.loaded .hero-cta.hero-in{ animation-delay: .48s; }
+@keyframes fade-up{ to{ opacity: 1; transform: translateY(0); } }
+
+/* ---- Screenshot hero: intrare cu perspectiva + indreptare la scroll ---- */
+.hero-shot{ perspective: 1400px; }
+.shot-frame{
+  transform-origin: 50% 20%;
+  transform: rotateX(calc(var(--shot-tilt, 0) * 1deg)) scale(calc(1 - var(--shot-tilt, 0) * 0.004));
+  will-change: transform;
+}
+html.js .shot-frame{
+  --shot-tilt: 9;
+  opacity: 0;
+}
+html.js body.loaded .shot-frame{
+  animation: shot-in 1s cubic-bezier(.22, 1, .3, 1) .45s forwards;
+}
+@keyframes shot-in{ to{ opacity: 1; } }
+
+/* sclipire o singura data peste screenshot */
+.shot-frame::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.35) 50%, transparent 60%);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+html.js body.loaded .shot-frame::after{
+  animation: shine 1.4s ease 1.3s forwards;
+}
+@keyframes shine{ to{ transform: translateX(120%); } }
+.shot-frame{ position: relative; }
+
+/* ---- Chips plutitoare peste hero ---- */
+.hero-shot{ position: relative; }
+.chip{
+  position: absolute;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 11px 18px;
+  font-size: 13.5px;
+  font-weight: 550;
+  color: var(--ink-soft);
+  box-shadow: var(--shadow-lift);
+  animation: chip-float 5.5s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.chip-dot{
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.chip-1{ left: 2%; top: 14%; animation-delay: -1.2s; }
+.chip-2{ right: 1%; top: 38%; animation-delay: -3.4s; }
+.chip-3{ left: 5%; top: 72%; animation-delay: -2.1s; }
+html.js .chip{ opacity: 0; }
+html.js body.loaded .chip{
+  animation: chip-in .7s cubic-bezier(.22, 1, .3, 1) forwards,
+             chip-float 5.5s ease-in-out 1.6s infinite alternate;
+}
+html.js body.loaded .chip-1{ animation-delay: .9s, 1.6s; }
+html.js body.loaded .chip-2{ animation-delay: 1.05s, 2.4s; }
+html.js body.loaded .chip-3{ animation-delay: 1.2s, 3.1s; }
+@keyframes chip-in{ from{ opacity: 0; transform: translateY(14px); } to{ opacity: 1; transform: translateY(0); } }
+@keyframes chip-float{ from{ translate: 0 -6px; } to{ translate: 0 6px; } }
+
+/* ---- Reveal cu blur pe titlurile de sectiune ---- */
+@media (min-width: 761px){
+  html.js .section-head.reveal{
+    filter: blur(7px);
+  }
+  html.js .section-head.reveal.is-visible{
+    filter: blur(0);
+    transition: opacity .6s ease, transform .6s ease, filter .6s ease;
+  }
+}
+
+/* ---- Reveal in cascada pentru griduri ---- */
+@media (min-width: 761px){
+  html.js .problema-grid .reveal:nth-child(2),
+  html.js .nise-grid .reveal:nth-child(2),
+  html.js .demo-grid .reveal:nth-child(2){ transition-delay: .08s; }
+  html.js .problema-grid .reveal:nth-child(3),
+  html.js .nise-grid .reveal:nth-child(3),
+  html.js .demo-grid .reveal:nth-child(3){ transition-delay: .16s; }
+  html.js .problema-grid .reveal:nth-child(4),
+  html.js .nise-grid .reveal:nth-child(4){ transition-delay: .24s; }
+  html.js .nise-grid .reveal:nth-child(5){ transition-delay: .32s; }
+  html.js .nise-grid .reveal:nth-child(6){ transition-delay: .06s; }
+  html.js .nise-grid .reveal:nth-child(7){ transition-delay: .14s; }
+  html.js .nise-grid .reveal:nth-child(8){ transition-delay: .22s; }
+  html.js .nise-grid .reveal:nth-child(9){ transition-delay: .30s; }
+  html.js .nise-grid .reveal:nth-child(10){ transition-delay: .38s; }
+}
+
+/* ---- Micro-interactiuni pe carduri ---- */
+.p-icon, .n-icon{
+  transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), background .2s ease, color .2s ease;
+}
+.p-card:hover .p-icon{ transform: scale(1.08) rotate(-4deg); }
+.n-card:hover .n-icon{
+  transform: scale(1.1) rotate(4deg);
+  background: var(--accent);
+  color: #fff;
+}
+.d-card{ transform-style: preserve-3d; }
+.d-play{ transition: transform .3s cubic-bezier(.34, 1.56, .64, 1); }
+.d-card:hover .d-play{ transform: scale(1.12); }
+
+/* ---- Pret: hover pe card ---- */
+.pret-card{ transition: transform .25s ease, box-shadow .25s ease; }
+.pret-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 2px 4px rgba(20,20,19,.05), 0 30px 60px -20px rgba(11, 99, 255, 0.25);
+}
+
+/* ---- FAQ: continut animat (inaltimea o anima JS-ul) ---- */
+.faq-list details p{ overflow: hidden; }
+
+/* ---- Responsive pentru stratul de animatii ---- */
+@media (max-width: 900px){
+  .chip{ display: none; }
+}
+@media (max-width: 760px){
+  html.js .shot-frame{ --shot-tilt: 0; }
+}
+@media (prefers-reduced-motion: reduce){
+  html.js .hero-title .line > span,
+  html.js .hero-in,
+  html.js .shot-frame,
+  html.js .chip{
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .shot-frame{ --shot-tilt: 0 !important; }
+  .shot-frame::after{ display: none; }
+  .chip{ animation: none !important; }
+  html.js .section-head.reveal{ filter: none; }
+}
