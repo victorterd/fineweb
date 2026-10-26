@@ -368,4 +368,28 @@
       submitBtn.disabled = false;
     }
   });
+
+  /* ===== CTA sticky in josul ecranului ===== */
+  const stickyCta = document.getElementById('sticky-cta');
+  if (stickyCta) {
+    // se ascunde cand sectiunea de programare sau footerul sunt pe ecran
+    const hidingZones = new Set();
+    const updateSticky = () => {
+      const show = window.scrollY > window.innerHeight * 0.85 && hidingZones.size === 0;
+      stickyCta.classList.toggle('show', show);
+    };
+    const zoneObs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) hidingZones.add(e.target);
+        else hidingZones.delete(e.target);
+      });
+      updateSticky();
+    }, { rootMargin: '0px 0px -10% 0px' });
+    const progSection = document.getElementById('programeaza');
+    const footer = document.querySelector('.site-footer');
+    if (progSection) zoneObs.observe(progSection);
+    if (footer) zoneObs.observe(footer);
+    window.addEventListener('scroll', updateSticky, { passive: true });
+    updateSticky();
+  }
 })();

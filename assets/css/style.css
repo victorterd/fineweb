@@ -175,6 +175,29 @@ h1, h2, h3 {
 .btn-lg{ padding: 16px 32px; font-size: 16px; }
 .btn-block{ width: 100%; }
 
+/* ============ CTA sticky jos ============ */
+.sticky-cta{
+  position: fixed;
+  left: 50%;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  z-index: 90;
+  transform: translate(-50%, 150%);
+  opacity: 0;
+  pointer-events: none;
+  padding: 15px 30px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 18px 44px -12px rgba(11, 99, 255, 0.65),
+    0 6px 18px rgba(20, 20, 19, 0.18);
+  transition: transform .4s cubic-bezier(.22, .9, .3, 1), opacity .35s ease;
+}
+.sticky-cta.show{
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.sticky-cta.show:hover{ transform: translate(-50%, -2px); }
+
 /* ============ Header ============ */
 .site-header{
   position: fixed;
