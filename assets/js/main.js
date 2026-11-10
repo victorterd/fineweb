@@ -103,7 +103,8 @@
 
   // Butoane magnetice
   if (finePointer && !reducedMotion) {
-    document.querySelectorAll('.btn').forEach(btn => {
+    // sticky-cta e centrat prin transform, efectul magnetic l-ar deplasa
+    document.querySelectorAll('.btn:not(.sticky-cta)').forEach(btn => {
       btn.addEventListener('mousemove', (e) => {
         const r = btn.getBoundingClientRect();
         const x = (e.clientX - r.left - r.width / 2) / (r.width / 2);
